@@ -1,17 +1,19 @@
-/*const messageEl = document.createElement('div');
-messageEl.textContent = 'I was put here by JavaScript!';
-document.body.appendChild(messageEl);
-*/
-
 import 'phaser';
 
 import { SimpleScene } from './scenes/simple-scene';
+import { platformerPhysics} from './physics/physics';
+import { game } from './objects/source';
 
 const gameConfig = {
-  width: 680,
-  height: 400,
-  scene: SimpleScene
-};
+  width: 800,
+  height: 600,
+	physics: platformerPhysics,
+  scene: SimpleScene,
+	render: {
+		pixelArt: true,
+		roundPixels: true
+	}
+}
 
 new Phaser.Game(gameConfig);
 

@@ -7,17 +7,16 @@ export class SimpleScene extends Phaser.Scene {
 		});
 	}
 	preload() {
-		//this.load.image('cokecan', 'assets/cokecan.png');
-
-		// map made with Tiled in JSON format
-		this.load.tilemapTiledJSON('map', 'assets/map.json');
-		// tiles in spritesheet
-		this.load.spritesheet('tiles', 'assets/tiles.png', {frameWidth: 70, frameHeight: 70});
-		// simple coin image
 		this.load.image('coin', 'assets/coinGold.png');
-		// player animations
 		this.load.atlas('player', 'assets/player.png', 'assets/player.json');
-		//this.load.atlas('playerDino', 'assets/wizard_dino.png', 'assets/player.json');
+
+
+		//----------------------------------------------------------------------
+		this.load.tilemapTiledJSON('map', 'assets/tilemap/map/test2.json');
+		this.load.spritesheet('basic', 'assets/tilemap/texture/basic.png', {frameWidth: 32, frameHeight: 32});
+
+		//this.load.tilemapTiledJSON('map', 'assets/map.json');
+		//this.load.spritesheet('tiles', 'assets/tiles.png', {frameWidth: 70, frameHeight: 70});
 
 		this.load.spritesheet('playerDino', 'assets/wizard_dino.png', {
 			frameWidth: 25,
@@ -29,10 +28,13 @@ export class SimpleScene extends Phaser.Scene {
 
 	create() {
 		this.map = this.make.tilemap({key: 'map'});
+		console.log("see map", map);
 		// tiles for the ground layer
-		this.groundTiles = this.map.addTilesetImage('tiles');
+		this.groundTiles = this.map.addTilesetImage('basic');
 		// create the ground layer
 		this.groundLayer = this.map.createDynamicLayer('World', this.groundTiles, 0, 0);
+
+		console.log("golden");
 		// the player will collide with this layer
 		this.groundLayer.setCollisionByExclusion([-1]);
 
@@ -40,7 +42,7 @@ export class SimpleScene extends Phaser.Scene {
 		this.physics.world.bounds.width = this.groundLayer.width;
 		this.physics.world.bounds.height = this.groundLayer.height;
 
-		this.player = this.physics.add.sprite(100, 100, 'playerDino').setScale(2); 
+		this.player = this.physics.add.sprite(25, 25, 'playerDino').setScale(2);
 		this.player.setBounce(0.2); // our player will bounce from items
 		this.player.setCollideWorldBounds(true); // don't go out of the map
 

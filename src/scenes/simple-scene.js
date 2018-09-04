@@ -42,8 +42,12 @@ export class SimpleScene extends Phaser.Scene {
 		this.physics.world.bounds.width = this.groundLayer.width;
 		this.physics.world.bounds.height = this.groundLayer.height;
 
-		this.player = this.physics.add.sprite(25, 25, 'playerDino').setScale(2);
-		this.player.setBounce(0.2); // our player will bounce from items
+		this.player = this.physics.add.sprite(25, 25, 'playerDino').setScale(3);
+		//this.player.setCircle(10);
+		this.player.setSize(10, 20, false);
+		console.log("checj", this.player.getTopLeft());
+		this.player.setOffset(0, 5);
+		this.player.setBounce(0); // our player will bounce from items
 		this.player.setCollideWorldBounds(true); // don't go out of the map
 
 		this.physics.add.collider(this.groundLayer, this.player);
@@ -59,42 +63,72 @@ export class SimpleScene extends Phaser.Scene {
 		this.anims.create({
     	key: 'idle',
     	frames: this.anims.generateFrameNumbers('playerDino', { start: 11, end: 11 }),
-    	frameRate: 10,
+    	frameRate: 25,
+    	repeat: -1
+		});
+
+		this.anims.create({
+    	key: 'run',
+    	frames: this.anims.generateFrameNumbers('playerDino', { start: 21, end: 26}),
+    	frameRate: 12,
     	repeat: -1
 		});
 
 		this.anims.create({
     	key: 'walk',
-    	frames: this.anims.generateFrameNumbers('playerDino', { start: 21, end: 26}),
-    	frameRate: 10,
-    	repeat: -1
+    	frames: this.anims.generateFrameNumbers('playerDino', { start: 91, end: 94}),
+    	frameRate: 13,
+    	repeat: 10
 		});
 
 
-		console.log("test");
+    this.player.on('animationcomplete', this.test, this);
 
 
 	}
 
+	test(animation, frame) {
+		if(animation.key === 'walk'){
+			this.player.is_running = true;
+		}
+	}
+
 	update(time, delta) {
-    if (this.cursors.left.isDown)
-    {
-        this.player.body.setVelocityX(-300); // move left
-        this.player.anims.play('walk', true); // play walk animation
-        this.player.flipX= false; // flip the sprite to the left
-    }
-    else if (this.cursors.right.isDown)
-    {
-        this.player.body.setVelocityX(300); // move right
-        this.player.anims.play('walk', true); // play walk animatio
-        this.player.flipX =true; // use the original sprite looking to the right
-    } else {
-        this.player.body.setVelocityX(0);
-        this.player.anims.play('idle', true);
-    }
-    if ((this.cursors.space.isDown || this.cursors.up.isDown) && this.player.body.onFloor()){
-       	this.player.body.setVelocityY(-500); // jump up
-			console.log("see player", this.player);
+		if (this.cursors.left.isDown)
+		{
+			this.player.moveLeft = true;
+			if(!this.player.is_running){
+				this.player.body.setVelocityX(-350); // move left
+				this.player.anims.play('walk', true); // play walk animation
+				this.player.flipX= false; // flip the sprite to the left
+				this.player.setOrigin(0.5, 0.5);
+			} else {
+				this.player.body.setVelocityX(-400); // move left
+				this.player.anims.play('run', true); // play walk animation
+				this.player.flipX= false; // flip the sprite to the left
+			}
+		}
+		else if (this.cursors.right.isDown)
+		{
+			this.player.moveRight = true;
+			if(!this.player.is_running){
+				this.player.body.setVelocityX(350); // move right
+				this.player.anims.play('walk', true); // play walk animatio
+				this.player.flipX =true; // use the original sprite looking to the right
+				this.player.setOrigin(1, 0.5);
+			} else {
+				this.player.body.setVelocityX(400); // move left
+				this.player.anims.play('run', true); // play walk animation
+				this.player.flipX= true; // flip the sprite to the left
+				//this.player.setOrigin(0.5, 0.5);
+			}
+		} else {
+			this.player.body.setVelocityX(0);
+			this.player.anims.play('idle', true);
+			this.player.is_running = 0;
+		}
+		if ((this.cursors.space.isDown || this.cursors.up.isDown) && this.player.body.onFloor()){
+			this.player.body.setVelocityY(-500); // jump up
 		}
 
 	}

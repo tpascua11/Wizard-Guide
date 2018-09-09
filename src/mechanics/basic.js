@@ -1,34 +1,32 @@
 /*
  Building Block Of Everything (Player, NPCs, Items, Platform)
-*/
+ */
 
 export default class Basic extends Phaser.GameObjects.Sprite {
+
+  /**
+   * Intialization
+   */
   constructor(config) {
-    this.init(config);
-  }
-  init(config){
     super(config.scene, config.x, config.y - 16, config.key);
     config.scene.physics.world.enable(this);
-
     config.scene.add.existing(this);
     this.alive = true;
     // start still and wait until needed
     this.body.setVelocity(0, 0).setBounce(0, 0).setCollideWorldBounds(false);
 
-    this.body.allowGravity = false;
     // Standard sprite is 16x16 pixels with a smaller body
     //this.body.setSize(12, 12);
     //this.body.offset.set(10,12);
     this.targetEnemy = null;
   }
-
-  statsSet(stats){
+  defaultStat(stats) {
     if(stats) this.stats = Object.assign({}, src);
     else{
       this.stats = {
         heatlh: 1,
         mana: 1,
-        direction: 1;
+        direction: 1,
         moveSwap: false,
         movingRight: true,
         movingLeft: false,
@@ -39,9 +37,9 @@ export default class Basic extends Phaser.GameObjects.Sprite {
       };
     }
   }
-  //------------------------------
-  // Stats Change
-  //------------------------------
+  /**
+   * Stat Change
+   */
   setHealth(health){
     this.stats.health = health
   }
@@ -54,11 +52,11 @@ export default class Basic extends Phaser.GameObjects.Sprite {
   changeManaBy(value){
     this.stats.mana += value
   }
-
-  //------------------------------
-  // Movement
-  //------------------------------
-  doMovement(){}
+  /**
+   * Movment
+   */
+  doMovement(){
+  }
   groundMovement(){
     if(this.stats.direction){
       if(this.velocity >= this.stats.maxVelocity){

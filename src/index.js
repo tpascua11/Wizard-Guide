@@ -4,6 +4,7 @@ import { SimpleScene } from './scenes/simple-scene';
 import { platformerPhysics} from './physics/physics';
 import { game } from './objects/source';
 
+
 var player;
 var cursors;
 var groundLayer, coinLayer;
@@ -18,8 +19,8 @@ const gameConfig = {
 	physics: {
 		default: 'arcade',
 		arcade: {
-			gravity: {y: 2000},
-			debug  : true
+			gravity: {y: 2500},
+			debug  : true,
 		}
 	},
 	scene: SimpleScene,
@@ -29,6 +30,4 @@ const gameConfig = {
 		roundPixels: true
 	}
 }
-
 new Phaser.Game(gameConfig);
-

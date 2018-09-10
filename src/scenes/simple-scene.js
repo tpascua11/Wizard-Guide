@@ -3,6 +3,7 @@ var map;
 import {LoadResources} from "../resource/resourceAll";
 import {CreatePlayerAnimation} from "../player/playerAnimate";
 import Player from "../player/player";
+import Slime from "../npc/slime";
 import Basic from "../mechanics/basic";
 
 export class SimpleScene extends Phaser.Scene {
@@ -39,6 +40,14 @@ export class SimpleScene extends Phaser.Scene {
 
 		CreatePlayerAnimation(this);
 		//this.player.on('animationcomplete', this.test, this);
+		//
+		//
+		this.slime = new Slime(this, 200, 50);
+
+		this.physics.add.collider(this.slime, this.player);
+		this.physics.add.collider(this.groundLayer, this.slime);
+
+		//this.physics.add.overlap(sprite, group);
 
 
 	}

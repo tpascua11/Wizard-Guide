@@ -111,7 +111,6 @@ r  * Intialization
   moveLeft(){
     //Walk State
     if(this.body.velocity.x > -(this.stats.maxVelocity)){
-      console.log("walk");
       this.anims.play('walk', true);
       this.body.setVelocityX(this.body.velocity.x - this.stats.acl); // move left
       this.flipX= false; // flip the sprite to the left
@@ -119,7 +118,6 @@ r  * Intialization
     }
     //Run State
     else {
-      console.log("run");
       this.anims.play('run', true); // play walk animation
       this.setOrigin(0.7, 0.5);
     }
@@ -127,7 +125,6 @@ r  * Intialization
   moveRight(){
     //Run State
     if(this.body.velocity.x < (this.stats.maxVelocity)){
-      console.log("walk");
       this.anims.play('walk', true);
       this.body.setVelocityX(this.body.velocity.x + this.stats.acl); // move left
       this.flipX = true; // flip the sprite to the left
@@ -135,11 +132,9 @@ r  * Intialization
     }
     //Run State
     else {
-      console.log("run");
       this.anims.play('run', true); // play walk animation
       this.setOrigin(0.5, 0.5);
     }
-
   }
 
   /**

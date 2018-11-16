@@ -4,7 +4,6 @@ import { SimpleScene } from './scenes/simple-scene';
 import { platformerPhysics} from './physics/physics';
 import { game } from './objects/source';
 
-
 var player;
 var cursors;
 var groundLayer, coinLayer;
@@ -20,7 +19,7 @@ const gameConfig = {
 		default: 'arcade',
 		arcade: {
 			gravity: {y: 2500},
-			debug  : true,
+			debug: true
 		}
 	},
 	scene: SimpleScene,

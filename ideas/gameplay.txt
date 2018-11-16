@@ -1,0 +1,76 @@
+
+Health: 3hp
+Mana  : 25mp
+RegenMana: 5mp per second
+
+Cantrips Spells
+
+Magic Breath:
+  Cost: 1 Mana per second
+  Damage: low damage per second
+  Special Effect: Magic Ingite
+  Description:
+    "magic breath is your basic means of defending yourself from
+     your enemies. As a magic breather you breath magic flames to
+     burn your foes. Magic breath also have a unique effect on
+     certain objects and foes,
+     slimes for instances will grow larger and explode
+     goblins cant take the heat of the magical flames there will try
+     to run away from you
+    "
+
+Force Push:
+  Cost: 5 Mana
+  Damage: None
+  Special Effect: Reverse
+  Description: "
+    Basic Catrip to push away foes. Deals no damage but can reflect
+    moving entities
+  "
+
+
+Magic Bomb:
+  Cost: 5 Mana Per Charge
+  Damage: low - very high damage based on charge level
+  Special Effect: Breakthrough
+  Description: "
+    Gather a bunch of magical energy to make a sphere of unstable magic
+    If you lose concentration the bomb will explode destroying your
+    barrier, if your charge level is more than half, you lose 1 hp.
+    This attack is considered very heavy and will break through
+    heavy guard and armor.
+  "
+
+Teleport:
+  Cost: 10 Mana
+  Damage: None
+  Special Effect: Invinicblity during Teleport
+  Description: "
+    Base On The Direction Your Heading, you will pocket dimesion
+    yourself for a short while and move towards your destination
+    at moderate speed. This can bypass many obstacles
+  "
+
+Magic Barrage:
+  Cost: 3 Mana Per Charge
+  Damage: low - high damage based on charge level
+  Special Effect: Neverending
+  Description: "
+    Concentrage Magical Energy on your claws to unleash
+    a devasting powerfull thrusting attack. The size of magic barrage
+    will grow bigger based on charge level. Magic Barrage will bypass
+    many obstalces gathering all enemies and objects towards its
+    destination.
+    losing concentration shoots the Magic Barrage automatically
+    with reduce effect and accuracy
+"
+
+Reinforce Barrier:
+  Cost: 1 Mana
+  Damage: None
+  Special Effect: Armor Up,
+  Description: "
+    Your Auto Barrier is reinfoce reducing incoming damage by a level
+  "
+
+

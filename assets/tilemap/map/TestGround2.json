@@ -20,62 +20,50 @@
                 {
                  "gid":103,
                  "height":27,
-                 "id":32,
-                 "name":"slime",
-                 "properties":
-                    {
-                     "key":"slime"
-                    },
-                 "propertytypes":
-                    {
-                     "key":"string"
-                    },
+                 "id":11,
+                 "name":"",
                  "rotation":0,
-                 "type":"RealSlime",
+                 "type":"",
                  "visible":true,
                  "width":39,
-                 "x":798.333333333333,
+                 "x":759,
                  "y":511
                 }, 
                 {
                  "gid":103,
                  "height":27,
-                 "id":33,
-                 "name":"slime",
-                 "properties":
-                    {
-                     "key":"slime"
-                    },
-                 "propertytypes":
-                    {
-                     "key":"string"
-                    },
+                 "id":12,
+                 "name":"",
                  "rotation":0,
-                 "type":"RealSlime",
+                 "type":"",
                  "visible":true,
                  "width":39,
-                 "x":1407.83333333333,
-                 "y":255.166666666667
+                 "x":907,
+                 "y":509
                 }, 
                 {
                  "gid":103,
                  "height":27,
-                 "id":34,
-                 "name":"slime",
-                 "properties":
-                    {
-                     "key":"slime"
-                    },
-                 "propertytypes":
-                    {
-                     "key":"string"
-                    },
+                 "id":13,
+                 "name":"",
                  "rotation":0,
-                 "type":"RealSlime",
+                 "type":"",
                  "visible":true,
                  "width":39,
-                 "x":1347.16666666667,
-                 "y":448.5
+                 "x":1025,
+                 "y":513
+                }, 
+                {
+                 "gid":103,
+                 "height":27,
+                 "id":14,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":39,
+                 "x":571,
+                 "y":653
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -83,7 +71,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":35,
+ "nextobjectid":15,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.1.6",
@@ -144,15 +132,13 @@
                 {
                  "image":"..\/enemyTemplate\/golbin.png",
                  "imageheight":39,
-                 "imagewidth":15,
-                 "type":"burnstar"
+                 "imagewidth":15
                 },
              "2":
                 {
                  "image":"..\/enemyTemplate\/slime.png",
                  "imageheight":27,
-                 "imagewidth":39,
-                 "type":"coolstar"
+                 "imagewidth":39
                 }
             },
          "tilewidth":39

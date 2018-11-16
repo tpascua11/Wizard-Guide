@@ -1,0 +1,81 @@
+Spellbook
+
+
+Candle:
+  Cost: 1 Mana
+  Damage: 1 Damage per second only on darkness creatures near light
+  Special Effect: Light Aura
+  Description: "
+    make a floating living magical flame that follows you. The flames light
+    will allow you to see in the dark. This will also harm darkness creatures
+    cast again to unsummon the flames
+  "
+
+Living Missle:
+  Cost: 10 Mana
+  Damage: low - moderate
+  Special Effect: Multiples
+  Cast Time: 2 seconds
+  Limits: 5
+  Description: "
+    Shoot Magical Missles that will seek multiple targets, if 
+    there are less targets the missile can target an already existing
+    targeted missle
+  "
+
+Extended Barrier:
+  Cost: 10 Mana
+  Damage: None
+  Special Effect: Wider Barrier
+  Description: "
+    Your Barrier now is triple its size, enemies will not be able to
+    harm you directily after shield breaking ablities. However if 
+    the enemy can reach you with their attack you will be harmed
+  "
+  Duration: 1 Min
+
+
+Mirror Image:
+  Cost: 5 Mana
+  Damage: None
+  Cast Time: Instant
+  Special Effect: Aggro
+  Description: "
+    Make A Illusion of yourself that the enemies will try to attack
+    Illusion fades after a hit
+  "
+  Duration: 1 min
+  Limit Amount: 2
+  Limits: 10
+
+Sleep Wave: 
+  Cost: 25 Mana
+  DamageL None
+  Special Effect: Sleep
+  Description: "
+    Cast a ray of drowsyness that extends far. Enemies hit
+    by sleepwave will fall into a deep slumber for 1 minute
+  "
+  Limit: 2
+
+Portal:
+  Cost: 15 Mana
+  Cast Time: 2 Seconds
+  Special Effect: Teleportation
+  Descirption: "
+    create a portal that connects to the last portal made, 
+    enemies, missles, and you can go throught it
+  "
+  Limit: 5
+
+30 Second Warrior:
+  Cost: 25 Mana
+  Cast Time: Instant
+  Special Effect: Warrior
+  Description: "
+    Your Force Push is replace with sword swings
+    sword swings will shoot slashes of magical energy in mid range
+  "
+  Limit: 5
+
+

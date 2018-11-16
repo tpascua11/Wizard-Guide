@@ -1,16 +1,16 @@
 export function LoadResources(scene){
+   scene.load.atlas('npcList', 'assets/spritesheet.png', 'assets/sprites.json');
 
   /**
    * Map
    */
   scene.load.image('coin', 'assets/coinGold.png');
-  scene.load.tilemapTiledJSON('map', 'assets/tilemap/map/test2.json');
+  scene.load.tilemapTiledJSON('map', 'assets/tilemap/map/TestGround.json');
   scene.load.spritesheet('basic', 'assets/tilemap/texture/basic.png', {frameWidth: 32, frameHeight: 32});
   /**
    * Player
    */
-  scene.load.atlas('player', 'assets/player.png', 'assets/player.json');
-  scene.load.spritesheet('playerDino', 'assets/wizard_dino.png', {
+  scene.load.spritesheet('playerDino', 'assets/player/player_dinosaur_spritesheet.png', {
     frameWidth: 25,
     frameHeight: 25,
     spacing: 0
@@ -28,7 +28,5 @@ export function LoadResources(scene){
     frameHeight: 16,
     spacing: 0
   });
-
-
 
 }

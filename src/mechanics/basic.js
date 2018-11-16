@@ -20,6 +20,7 @@ export default class Basic extends Phaser.GameObjects.Sprite {
     //this.body.offset.set(10,12);
     this.targetEnemy = null;
   }
+
   defaultStat(stats) {
     if(stats) this.stats = Object.assign({}, src);
     else{
@@ -34,30 +35,38 @@ export default class Basic extends Phaser.GameObjects.Sprite {
         maxVelocity: 500,
         hasJumped: false,
         isInAir: false,
+        goDirection: 0
       };
     }
   }
+
   /**
    * Stat Change
    */
   setHealth(health){
     this.stats.health = health
   }
+
   changeHealthBy(value){
     this.stats.health += value;
   }
+
   setMana(mana){
     this.stats.mana = mana;
   }
+
   changeManaBy(value){
     this.stats.mana += value
   }
+
   /**
    * Movment
    */
   doMovement(){
   }
+
   groundMovement(){
+    /*
     if(this.stats.direction){
       if(this.velocity >= this.stats.maxVelocity){
         this.velocity += this.stats.acceleration;
@@ -73,8 +82,13 @@ export default class Basic extends Phaser.GameObjects.Sprite {
           this.velocity = this.stats.maxVelocity;
         }
       }
-    }
+    }*/
   }
+
+  gravityMax(){
+    if(this.body.velocity.y > 700) this.body.velocity.y = 700;
+  }
+
   flyMovement(){}
   follow(){}
 

@@ -2,9 +2,9 @@ export function CreatePlayerAnimation(scene){
   //Dinosaur Wizard Idle
   scene.anims.create({
     key: 'idle',
-    frames: scene.anims.generateFrameNumbers('playerDino', { start: 11, end: 11 }),
-    frameRate: 25,
-    repeat: -1
+    frames: scene.anims.generateFrameNumbers('playerDino', { start: 11, end: 17 }),
+    frameRate: 5,
+    repeat: 0
   });
 
   //Dinosaur Wizard Running
@@ -12,6 +12,30 @@ export function CreatePlayerAnimation(scene){
     key: 'run',
     frames: scene.anims.generateFrameNumbers('playerDino', { start: 21, end: 26}),
     frameRate: 12,
+    repeat: -1
+  });
+
+  //Dinosaur Wizard Jump
+  scene.anims.create({
+    key: 'jump',
+    frames: scene.anims.generateFrameNumbers('playerDino', { start: 41, end: 44}),
+    frameRate: 9,
+    repeat: 0
+  });
+
+  //Dinosaur Wizard Jump
+  scene.anims.create({
+    key: 'spellJump',
+    frames: scene.anims.generateFrameNumbers('playerDino', { start: 41, end: 44}),
+    frameRate: 9,
+    repeat: 0
+  });
+
+  //Dinosaur Wizard Lay
+  scene.anims.create({
+    key: 'lay',
+    frames: scene.anims.generateFrameNumbers('playerDino', { start: 81, end: 81}),
+    frameRate: 10,
     repeat: -1
   });
 

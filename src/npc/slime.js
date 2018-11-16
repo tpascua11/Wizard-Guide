@@ -5,74 +5,112 @@
  */
 
 
-import Basic from '../mechanics/basic';
+import AI from '../mechanics/ai';
 
-export default class Slime extends Basic{
+export default class Slime extends AI{
   /**
    * Intialization
    */
-  constructor(scene, x, y) {
+  constructor(scene, enemyInfo) {
     var config = {
       key: "slimeTemplate",
-      x,
-      y,
+      x: enemyInfo.x,
+      y: enemyInfo.y,
       scene: scene
     }
     super(config);
 
-    this.init(scene)
+    this.init(scene, enemyInfo)
   }
 
-  init(scene){
+  init(scene, enemyInfo){
     scene.physics.world.enable(this);
+		//this.setDisplaySize(enemyInfo.width*3, enemyInfo.height*3);
+    this.body.setSize(enemyInfo.width/3, enemyInfo.height/3, false);
+    this.body.setOffset(0, enemyInfo.height-18);
     this.setScale(3);
-    this.body.setSize(10, 20, false);
-    this.body.setOffset(5 , 5);
     this.body.setBounce(0);
     this.body.setCollideWorldBounds(true);
-    //this.body.setDrag(100);
+    this.newStats();
+    this.anims.play('slimeDo', true);
 
-    scene.cameras.main.startFollow(this);
+		this.animationEventSetup();
 
-    this.defaultStat();
+		this.newStats();
   }
 
-  defaultStat(stats) {
-    if(stats) this.stats = Object.assign({}, src);
-    else{
-      this.stats = {
-        heatlh: 1,
-        mana: 1,
-        direction: 1,
-        moveSwap: false,
-        movingRight: true,
-        movingLeft: false,
-        currentVelocity: 0,
-        maxVelocity: 350,
-        acl: 25,
-        hasJumped: false,
-        isInAir: false
-      };
-    }
-  }
+	animationEventSetup(){
+		this.on('animationcomplete', function (anim, frame) {
+		  this.emit('animationcomplete_' + anim.key, anim, frame);
+		}, this);
 
-  /**
-   * Controls
-   */
+		this.on('animationcomplete_slimeJump', function () {
+    	this.anims.play('slimeDo', true);
+			this.body.velocity.x = 50 * this.state.targetDirection;
+		});
+	}
+
+  newStats() {
+		this.stats.willAggro = true;
+		this.stats.aggroRangeX = 200;
+		this.stats.aggroRangeY = 100;
+  }
 
   /**
    * State
    */
   updateState(scene){
   }
+
+  hi(scene, player){
+    //this.body.setAllowGravity(false);
+    //scene.physics.moveToObject(this, player, 500);
+  }
+
   /**
-   * Movement
+   * Action_Animation
    */
   /**
    * Action
    */
+	doNaturalAction(scene){
+		this.body.velocity.y -= 600;
+		this.body.velocity.x += 50;
+		this.delayNextAction(scene, 5);
+		this.delayNextMovement(scene, 5);
+	}
 
+	doNaturalMovement(){
+		this.body.velocity.x = 0;
+	}
 
+	doAggroMovement(){
+		this.body.velocity.x = 50 * this.state.targetDirection;
+	}
+
+	doAggroAction(scene){
+		this.body.velocity.y -= 600;
+		//this.body.velocity.x = 10000;
+		this.body.velocity.x = 250 * this.state.targetDirection;
+		this.delayNextAction(scene, 2);
+    this.anims.play('slimeJump', true);
+		this.delayNextMovement(scene, 1);
+	}
+
+	regainAction(){
+    this.anims.play('slimeDo', true);
+		this.stats.delay = false;
+		console.log("cool?");
+	}
+
+	aggroOnReset(){
+		//console.log("AGGRO IS ON");
+		this.state.delayMovement = false;
+	}
+
+	aggroOffReset(){
+		//console.log("AGGRO IS OFF");
+	}
 
 }
 

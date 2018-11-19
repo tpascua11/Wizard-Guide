@@ -74,10 +74,11 @@ export default class Slime extends AI{
    * Action
    */
 	doNaturalAction(scene){
-		this.body.velocity.y -= 600;
-		this.body.velocity.x += 50;
-		this.delayNextAction(scene, 5);
+		this.body.velocity.y -= 500;
+		this.body.velocity.x += 200 * this.state.lastTargetDirection;
+		this.delayNextAction(scene, 3);
 		this.delayNextMovement(scene, 5);
+		this.stats.resetVelocityOnLand = true;
 	}
 
 	doNaturalMovement(){
@@ -85,31 +86,35 @@ export default class Slime extends AI{
 	}
 
 	doAggroMovement(){
-		this.body.velocity.x = 50 * this.state.targetDirection;
+		this.body.velocity.x = 0;
+		//this.body.velocity.x = 50 * this.state.targetDirection;
 	}
 
 	doAggroAction(scene){
+		console.log("Slime Attack!");
 		this.body.velocity.y -= 600;
 		//this.body.velocity.x = 10000;
 		this.body.velocity.x = 250 * this.state.targetDirection;
 		this.delayNextAction(scene, 2);
     this.anims.play('slimeJump', true);
 		this.delayNextMovement(scene, 1);
+		this.stats.resetVelocityOnLand = true;
 	}
 
 	regainAction(){
+		console.log("I regain My Action");
     this.anims.play('slimeDo', true);
 		this.stats.delay = false;
-		console.log("cool?");
 	}
 
 	aggroOnReset(){
 		//console.log("AGGRO IS ON");
-		this.state.delayMovement = false;
+		this.state.delayMovement = true;
 	}
 
 	aggroOffReset(){
 		//console.log("AGGRO IS OFF");
+		this.state.delayMovement = true;
 	}
 
 }

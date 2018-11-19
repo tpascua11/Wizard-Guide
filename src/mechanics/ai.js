@@ -53,7 +53,8 @@ export default class AI extends Basic{
         is_aggroed: false,
         delay: false,
         delayMovement: false,
-        delayAction: false
+        delayAction: false,
+        lastTargetDirection: 0
       };
     }
   }
@@ -64,6 +65,7 @@ export default class AI extends Basic{
   newProcessAI(scene){
     this.thinkAndReact(scene);
     this.gravityMax();
+    this.landReset();
     if(this.state.is_aggroed){
       this.aggroState(scene);
     }
@@ -86,11 +88,18 @@ export default class AI extends Basic{
     //withinAggroRange()
     if(this.stats.willAggro){
       if(this.withinAggroRange(scene.player)){
-        if(!this.state.is_aggroed) this.aggroOnReset();
+        if(!this.state.is_aggroed){
+          this.aggroOnReset();
+          //this.callAggroWarningBubble();
+        }
         this.state.is_aggroed = true;
       }
       else{
-        if(this.state.is_aggroed) this.aggroOffReset();
+        if(this.state.is_aggroed){
+          this.aggroOffReset();
+          this.state.lastTargetDirection = this.state.targetDirection;
+          //this.callAggroOffBubble();
+        }
         this.state.is_aggroed = false;
       }
     }
@@ -150,18 +159,36 @@ export default class AI extends Basic{
   overlapAction(){}
 	aggroOnReset(){}
 	aggroOffReset(){}
+  aggroActionReset(){}
+  naturalActionReset(){}
   /**
    * Movement
    */
   doMovement(){
+    // Makes the AI move at maxVelocity
     this.body.setVelocityX(this.stats.maxVelocity);
   }
 
   gravityEffect(){
+    // sets gravity fall speed at gravity max
     if(this.body.velocity.y >= this.stats.gravityMax){
       this.body.velocity.y = this.stats.gravityMax;
     }
   }
 
+  landReset(){
+    //If stats.resetVelocityOnLand
+    if(this.stats.resetVelocityOnLand){
+      if(this.body.onFloor()){
+        if(!this.stats.landSpeed){
+          this.body.velocity.x = 0
+        }
+        else{
+          this.body.velocity.x = this.stats.landSpeed;
+        }
+        this.stats.resetVelocityOnLand = false;
+      }
+    }
+  }
 
 };

@@ -20,8 +20,6 @@ export class SimpleScene extends Phaser.Scene {
 	}
 
 	create() {
-
-
 		this.map = this.make.tilemap({key: 'map'});
 		this.groundTiles = this.map.addTilesetImage('basic'); // tiles for the ground layer
 		this.groundLayer = this.map.createDynamicLayer('World', this.groundTiles, 0, 0); // create the ground layer
@@ -123,6 +121,7 @@ export class SimpleScene extends Phaser.Scene {
 	//	}
 		console.log("oh");
 	}
+
 	fire(){
 		console.log("Fire!");
 	}
@@ -137,7 +136,6 @@ export class SimpleScene extends Phaser.Scene {
 		//this.test.body.x = this.player.body.x - 100;
 		//this.test.body.y = this.player.body.y - 100;
 	}
-
 
 
 }

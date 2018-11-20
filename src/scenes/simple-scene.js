@@ -124,13 +124,7 @@ export class SimpleScene extends Phaser.Scene {
 		console.log("oh");
 	}
 	fire(){
-		console.log("Cool");
-		console.log("Cool");
-		console.log("Cool");
-		console.log("Cool");
-		console.log("Cool");
-		console.log("Cool");
-		console.log("Cool");
+		console.log("Fire!");
 	}
 
 	update(time, delta) {

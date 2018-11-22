@@ -1,6 +1,7 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-3-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -49,7 +50,16 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'production-dependencies',
       filename: 'production-dependencies.bundle.js'
+    }),
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        warnings: false,
+        output: {
+          comments: false,
+          beautify: false,
+        }
+      }
     })
   ]
 
-};
+      };

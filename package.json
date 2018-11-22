@@ -15,6 +15,7 @@
     "webpack-dev-server": "^2.0.0"
   },
   "dependencies": {
-    "phaser": "^3.0.0"
+    "phaser": "^3.0.0",
+    "uglifyjs-3-webpack-plugin": "^1.2.4"
   }
 }

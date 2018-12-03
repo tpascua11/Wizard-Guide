@@ -93,8 +93,8 @@ export class SimpleScene extends Phaser.Scene {
 
 		this.physics.add.collider(this.groundLayer, this.enemyGroup);
 		this.physics.add.overlap(this.player, this.enemyGroup, this.interaction, null, this);
-		//this.physics.add.overlap(this.player, this.collisionStorage, this.collisionEffect, null, this);
-		this.physics.add.overlap(this.enemyGroup, this.collisionStorage, this.collisionEffect, null, this);
+		this.physics.add.overlap(this.player, this.collisionStorage, this.collisionEffect, null, this);
+		//this.physics.add.overlap(this.enemyGroup, this.collisionStorage, this.collisionEffect, null, this);
 
 
     this.universalTime = 0;

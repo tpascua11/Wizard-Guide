@@ -114,6 +114,16 @@ export default class Slime extends AI{
     this.anims.play('slimeJump', true);
 		this.delayNextMovement(scene, 1);
 		this.stats.resetVelocityOnLand = true;
+
+        var config = {
+          x: this.body.x,
+          y: this.body.y,
+          updateLimit: 20,
+          hitLimit: 1,
+          user: this,
+          followUser: true,
+        };
+        this.currentCollision = scene.createCollision(config);
 	}
 
 	regainAction(){

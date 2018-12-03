@@ -1,0 +1,150 @@
+*********************************************************************
+
+  Milestone: Protoype Wizard Lizard!
+
+*********************************************************************
+--------------------------------------------------------------------------------
+  Version 0.0.1 (Completed) -- All The Imporatnt Stuff To Build On 
+--------------------------------------------------------------------------------
+  [X] Atlas Image Upload (init step)
+  [X] Enemies Placement Base on tile map (init step)
+  [X] Platform Placement Base on tile map (init step)
+  [X] Basic Enemies
+  [X] Basic Player Movement
+  [X] Webpack Upload To Server Website
+  [X] minify code base
+
+--------------------------------------------------------------------------------
+  Version 0.2 -- Collision Effect Basic
+--------------------------------------------------------------------------------
+  This is to build the foundation of interaction between player/npcs.
+
+  [X] Damage/Effect Collision Field
+    (X) Collision Class Built
+    (X) Able to pool them
+    (X) Able to change size
+    (X) Can Kill Itself In 1 Frame Update (but not destroyed)
+    (X) Can Kill Itself Once Collision Starts
+    (X) Can Stick to a area around character
+         even when moving
+    (X) Collision Causes Affect to Characters
+    (X) Reference to The User of this collision effect and vice versa
+ [ ] Slimes have access to using diffrent collision effects
+
+--------------------------------------------------------------------------------
+  Version 0.3 -- Life/Mana and lose State
+--------------------------------------------------------------------------------
+  Build the foundation of losing and wining
+  This will start building the health and mana
+  [ ] Mana Bar
+  [ ] Health Bar
+  [ ] Collision From Slimes will will damage mana/health
+      ( ) Make Power Level Scaling Attacks
+            - level 0 deal no damage
+            - level 1 no damage but potential stagger
+            - level 2 deal only mana damage
+            - level 3 (shield gate) deal mana damage and
+                      deal health damage only when mana is already 0
+            - level 4 deal mana damage and health damage if damage
+                      is more than current mana
+            - level 5 destorys mana completely, deals health damage
+            - level 6 will kill you
+            - level 7 will definetly kill you
+            - level 8 is this even possible
+          Note: Guard/Barrier will decrease the power level
+
+--------------------------------------------------------------------------------
+  Version 0.4 -- Win State
+--------------------------------------------------------------------------------
+  A trigger to cutscenes and or events
+
+  [ ] Interactive Statue/Campfire that once interacted
+      will show a dialog box saying "Rest up for more adventuring"
+      Yes or No Option
+  [ ] Scene can go straight to the main menu
+
+--------------------------------------------------------------------------------
+  Version 0.5 -- Menu Screen
+--------------------------------------------------------------------------------
+  A Menu Screen to navaigate throught options
+  [ ]  Menu
+      ( ) Start Game
+      ( ) Continue (no changest to continue game)
+      ( ) Options (no changes to control or display yet)
+      ( ) Exit (no idea yet)
+  [ ] Loading Info
+      ( ) Load Bar
+
+--------------------------------------------------------------------------------
+  Version 0.6 -- Move Between Diffrent Levels
+--------------------------------------------------------------------------------
+  [ ] Traverse Between 2 diffrent level layout
+      ( ) Interactive Doorwar or somesort to move to a diffrent Level
+      ( ) Reaching Near the end of the screen cause movement to diffrent level
+
+--------------------------------------------------------------------------------
+  Version 0.7 -- Player Basic Spells/Attacks
+--------------------------------------------------------------------------------
+  [ ] DRAGON WIZARD MAGIC BREATH
+  [ ] Spell Jump
+  [ ] Barrier
+  [ ] Rest Barrier
+
+--------------------------------------------------------------------------------
+  Version 0.8 -- New Enemies
+--------------------------------------------------------------------------------
+  [ ] Level Specfic Pools (Delete Unused Enemies Base On New Parts of the Level)
+  [ ] Unique Enemy Pool
+  [ ] Goblin Swordsman
+    ( ) Has A Melee Swipe Attack Level 2 Damage
+    ( ) Barrier will reduce power level by 1 or 2
+  [ ] Blue Slime
+    ( ) When Magic Breath on Slime will absorb and grow bigger
+        explodes when too big and will cause level 3 damage
+    ( ) Slimes deal no damage, only causes stagger
+  [ ] Green Slime
+    ( ) When Magic Breath on Slime will explode level 0 damage`
+
+--------------------------------------------------------------------------------
+  Version 0.9 -- Projectile Users
+--------------------------------------------------------------------------------
+  [ ] Unique Projectile Pool for Enemies and Player
+  [ ] Goblin Archer
+      ( ) Attacks From A long distance
+      ( ) Attacks Deal Level 3 Damage
+
+--------------------------------------------------------------------------------
+  Version 0.10 -- Basic Interactiable Obstacles
+--------------------------------------------------------------------------------
+  [ ] New Action Telekensis, able to grab and hold objects of many kinds
+  [ ] Breakable Blocks
+  [ ] Pickable Boxes
+
+--------------------------------------------------------------------------------
+  Version 0.11 -- Player Advanced Spells/Attacks
+--------------------------------------------------------------------------------
+  [ ] Teleport
+  [ ] Magic Bombs
+  [ ] Harden
+  [ ] Permanance
+
+--------------------------------------------------------------------------------
+  Version 0.12 -- Basic Sounds/Music
+--------------------------------------------------------------------------------
+  Add simple sound effect and music to make the world feel more lively
+
+
+*********************************************************************
+
+  Milestone: Crafting the 1st Level
+
+*********************************************************************
+--------------------------------------------------------------------------------
+  Version 0.00 Player Spellbook
+--------------------------------------------------------------------------------
+  The More Fun Parts of Spells
+  [ ] Spellbook Menu realtime
+    ( ) Menu to cast a vareity of spells but don't build spells yet
+    ( ) Make it reference quick spells just for the templates
+
+

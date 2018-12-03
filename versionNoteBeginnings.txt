@@ -15,7 +15,7 @@
   [X] minify code base
 
 --------------------------------------------------------------------------------
-  Version 0.2 -- Collision Effect Basic
+  Version 0.0.2 (Completed)-- Collision Effect Basic
 --------------------------------------------------------------------------------
   This is to build the foundation of interaction between player/npcs.
 
@@ -29,10 +29,10 @@
          even when moving
     (X) Collision Causes Affect to Characters
     (X) Reference to The User of this collision effect and vice versa
- [ ] Slimes have access to using diffrent collision effects
+  [X] Slimes have access to using diffrent collision effects
 
 --------------------------------------------------------------------------------
-  Version 0.3 -- Life/Mana and lose State
+  Version 0.0.3 -- Life/Mana and lose State
 --------------------------------------------------------------------------------
   Build the foundation of losing and wining
   This will start building the health and mana
@@ -54,7 +54,7 @@
           Note: Guard/Barrier will decrease the power level
 
 --------------------------------------------------------------------------------
-  Version 0.4 -- Win State
+  Version 0.0.4 -- Win State
 --------------------------------------------------------------------------------
   A trigger to cutscenes and or events
 
@@ -64,7 +64,7 @@
   [ ] Scene can go straight to the main menu
 
 --------------------------------------------------------------------------------
-  Version 0.5 -- Menu Screen
+  Version 0.0.5 -- Menu Screen
 --------------------------------------------------------------------------------
   A Menu Screen to navaigate throught options
   [ ]  Menu
@@ -76,14 +76,14 @@
       ( ) Load Bar
 
 --------------------------------------------------------------------------------
-  Version 0.6 -- Move Between Diffrent Levels
+  Version 0.0.6 -- Move Between Diffrent Levels
 --------------------------------------------------------------------------------
   [ ] Traverse Between 2 diffrent level layout
       ( ) Interactive Doorwar or somesort to move to a diffrent Level
       ( ) Reaching Near the end of the screen cause movement to diffrent level
 
 --------------------------------------------------------------------------------
-  Version 0.7 -- Player Basic Spells/Attacks
+  Version 0.0.7 -- Player Basic Spells/Attacks
 --------------------------------------------------------------------------------
   [ ] DRAGON WIZARD MAGIC BREATH
   [ ] Spell Jump
@@ -91,7 +91,7 @@
   [ ] Rest Barrier
 
 --------------------------------------------------------------------------------
-  Version 0.8 -- New Enemies
+  Version 0.0.8 -- New Enemies
 --------------------------------------------------------------------------------
   [ ] Level Specfic Pools (Delete Unused Enemies Base On New Parts of the Level)
   [ ] Unique Enemy Pool
@@ -106,7 +106,7 @@
     ( ) When Magic Breath on Slime will explode level 0 damage`
 
 --------------------------------------------------------------------------------
-  Version 0.9 -- Projectile Users
+  Version 0.0.9 -- Projectile Users
 --------------------------------------------------------------------------------
   [ ] Unique Projectile Pool for Enemies and Player
   [ ] Goblin Archer
@@ -114,14 +114,14 @@
       ( ) Attacks Deal Level 3 Damage
 
 --------------------------------------------------------------------------------
-  Version 0.10 -- Basic Interactiable Obstacles
+  Version 0.0.10 -- Basic Interactiable Obstacles
 --------------------------------------------------------------------------------
   [ ] New Action Telekensis, able to grab and hold objects of many kinds
   [ ] Breakable Blocks
   [ ] Pickable Boxes
 
 --------------------------------------------------------------------------------
-  Version 0.11 -- Player Advanced Spells/Attacks
+  Version 0.0.11 -- Player Advanced Spells/Attacks
 --------------------------------------------------------------------------------
   [ ] Teleport
   [ ] Magic Bombs
@@ -129,7 +129,7 @@
   [ ] Permanance
 
 --------------------------------------------------------------------------------
-  Version 0.12 -- Basic Sounds/Music
+  Version 0.0.12 -- Basic Sounds/Music
 --------------------------------------------------------------------------------
   Add simple sound effect and music to make the world feel more lively
 

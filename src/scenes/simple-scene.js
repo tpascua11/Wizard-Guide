@@ -1,6 +1,7 @@
 var map;
 
 import {LoadResources} from "../resource/resourceAll";
+import {SetupCollisionEvent} from "../mechanics/damageBox";
 import {CreatePlayerAnimation} from "../player/playerAnimate";
 import Player from "../player/player";
 import Slime from "../npc/slime";
@@ -24,8 +25,6 @@ export class SimpleScene extends Phaser.Scene {
 		this.groundTiles = this.map.addTilesetImage('basic'); // tiles for the ground layer
 		this.groundLayer = this.map.createDynamicLayer('World', this.groundTiles, 0, 0); // create the ground layer
 		this.groundLayer.setCollisionByExclusion([-1]); // the player will collide with this layer
-
-
 
 		// set the boundaries of our game world
 		this.physics.world.bounds.width = this.groundLayer.width;
@@ -61,7 +60,6 @@ export class SimpleScene extends Phaser.Scene {
     	repeat: -1,
 			onUpdate: this.test
 		});
-
 		this.anims.create({
 			key: 'slimeJump',
 			frames: this.anims.generateFrameNames('npcList', { prefix: 'SlimeJump', start: 0, end: 7}),
@@ -69,7 +67,6 @@ export class SimpleScene extends Phaser.Scene {
     	repeat: 1,
 			onUpdate: function(){ console.log("cool")}
 		});
-
     this.anims.create({
 			key: 'goblinStabber',
 			frames: this.anims.generateFrameNames('npcList', { prefix: 'goblinDagger', start: 0, end: 5}),
@@ -84,9 +81,7 @@ export class SimpleScene extends Phaser.Scene {
 		}
 		*/
 		this.enemyGroup = this.add.group();
-
 		console.log("see map", this.map);
-
 		this.map.getObjectLayer('Enemies').objects.forEach(
 			(enemy) => {
 				console.log("enemy", enemy);
@@ -94,14 +89,14 @@ export class SimpleScene extends Phaser.Scene {
 			}
 		);
 
-		var info = {x: 100, y: 100};
-		this.test = new CollisionEvent(this, info);
+		SetupCollisionEvent(this);
 
-
-		//this.physics.add.collider(this.slime, this.player);
 		this.physics.add.collider(this.groundLayer, this.enemyGroup);
 		this.physics.add.overlap(this.player, this.enemyGroup, this.interaction, null, this);
-		//this.physics.add.overlap(sprite, group);
+		//this.physics.add.overlap(this.player, this.collisionStorage, this.collisionEffect, null, this);
+		this.physics.add.overlap(this.enemyGroup, this.collisionStorage, this.collisionEffect, null, this);
+
+
     this.universalTime = 0;
 		this.time.addEvent({ delay: 500, callback: this.timeTick, callbackScope: this, loop: true });
 	}
@@ -112,14 +107,16 @@ export class SimpleScene extends Phaser.Scene {
 	}
 
 	interaction(player, npc){
-		npc.overlapAction(this, player);
+		//console.log("TESTING");
+		//npc.overlapAction(this, player);
 	}
 
-	test(animation, frame) {
-		//if(animation.key === 'walk'){
-	//		this.player.is_running = true;
-	//	}
-		console.log("oh");
+	collisionEffect(targets, collision){
+		if(collision.active){
+			collision.state.currentHits++;
+			console.log("collision hits", collision.state.currentHits);
+			targets.body.velocity.y -= 1000;
+		}
 	}
 
 	fire(){
@@ -135,9 +132,7 @@ export class SimpleScene extends Phaser.Scene {
 		}, this);
 		//this.test.body.x = this.player.body.x - 100;
 		//this.test.body.y = this.player.body.y - 100;
+    //console.log("2");
 	}
 
-
 }
-
-

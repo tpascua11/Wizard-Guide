@@ -115,6 +115,9 @@ export default class AI extends Basic{
     }
   }
 
+  death(){
+    //Use this to return back to pool and be inactive for later use
+  }
   /**
    * AI_Basic_Actions
    */
@@ -189,6 +192,25 @@ export default class AI extends Basic{
         this.stats.resetVelocityOnLand = false;
       }
     }
+  }
+
+  /**
+   * Actions
+   */
+  aggroActionInfo(){
+    this.aggroAttack = {
+      collisionLimit: 1,
+      time: -1,
+      callCollisionOn: -1
+    };
+  }
+
+  naturalActionInfo(){
+    this.aggroAttack = {
+      collisionLimit: 1,
+      time: -1,
+      callCollisionOn: -1
+    };
   }
 
 };

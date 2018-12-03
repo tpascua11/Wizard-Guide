@@ -115,8 +115,8 @@ export default class Player extends Basic{
     }
 
     if(Phaser.Input.Keyboard.JustDown(this.control.keyJump)){
-      if(!this.state.onGround) this.spellJump();
-      else this.jump();
+      if(!this.state.onGround) this.spellJump(scene);
+      else this.jump(scene);
     }
     else if(this.control.keyJump.isDown){
       this.boostJumping();
@@ -163,13 +163,24 @@ export default class Player extends Basic{
     }
   }
 
-  jump(){
+  jump(scene){
       if(this.state.onGround){
         this.state.jumpCurrent = 0;
         this.anims.play('jump', true);
         this.body.setVelocityY(this.stats.jumpPower); // jump up
         this.state.has_jumped = true;
         console.log("jump");
+        //let test = scene.collisionStorage.getFirstDead(false, this.body.x, this.body.y);
+        //test.active = true;
+        var config = {
+          x: this.body.x,
+          y: this.body.y,
+          updateLimit: 1,
+          hitLimit: 2,
+          user: this,
+          followUser: true,
+        };
+        this.currentCollision = scene.createCollision(config);
       }
   }
 
@@ -179,15 +190,16 @@ export default class Player extends Basic{
             this.body.velocity.y -= this.stats.jumpAcl;
 
             this.state.jumpCurrent++;
-            console.log("jump span", this.state.jumpCurrent);
+            //console.log("jump span", this.state.jumpCurrent);
         }
       }
   }
 
-  spellJump(){
+  spellJump(scene){
       this.state.jumpCurrent = 0;
       this.anims.play('spellJump', true);
       this.body.setVelocityY(this.stats.jumpPower+100); // jump up
+      scene.collisionStorage.getFirstDead(false, this.body.x, this.body.y);
   }
 
   stopMoving(stopForce){

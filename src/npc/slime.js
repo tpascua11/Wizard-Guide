@@ -47,9 +47,24 @@ export default class Slime extends AI{
 		this.on('animationcomplete_slimeJump', function () {
     	this.anims.play('slimeDo', true);
 			this.body.velocity.x = 50 * this.state.targetDirection;
+			console.log("JUMP COMPLETE");
 		});
+
+		/*
+		this.once = 0;
+		this.on('animationupdate', function (anim, frame) {
+			if(!this.once){
+				console.log("bypass", anim);
+				this.once = true;
+			}
+		}, this);
+		*/
 	}
 
+	dynamicAnimationEvent(){
+		//make animation
+
+	}
   newStats() {
 		this.stats.willAggro = true;
 		this.stats.aggroRangeX = 200;

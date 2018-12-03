@@ -15,6 +15,7 @@ export function LoadResources(scene){
     frameHeight: 25,
     spacing: 0
   });
+
   /**
    * Monster
    */
@@ -28,5 +29,12 @@ export function LoadResources(scene){
     frameHeight: 16,
     spacing: 0
   });
+
+  scene.load.spritesheet('attackDebug', 'assets/debug/collisionField.png', {
+    frameWidth: 25,
+    frameHeight: 25,
+    spacing: 0
+  });
+
 
 }

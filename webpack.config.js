@@ -51,6 +51,7 @@ module.exports = {
       name: 'production-dependencies',
       filename: 'production-dependencies.bundle.js'
     }),
+    /*
     new UglifyJsPlugin({
       uglifyOptions: {
         warnings: false,
@@ -60,6 +61,7 @@ module.exports = {
         }
       }
     })
+    */
   ]
 
       };

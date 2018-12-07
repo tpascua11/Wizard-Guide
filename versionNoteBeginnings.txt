@@ -1,6 +1,6 @@
 *********************************************************************
 
-  Milestone: Protoype Wizard Lizard!
+  Version 0.1 -- Milestone: Protoype Wizard Lizard!
 
 *********************************************************************
 --------------------------------------------------------------------------------
@@ -36,10 +36,16 @@
 --------------------------------------------------------------------------------
   Build the foundation of losing and wining
   This will start building the health and mana
-  [ ] Mana Bar
-  [ ] Health Bar
-  [ ] Collision From Slimes will will damage mana/health
-      ( ) Make Power Level Scaling Attacks
+  [X] Mana Bar
+  [X] Health Bar
+  [X] Simple Modifer function to change health or mana
+     (X) Add Functionality To Player
+     (X) Add Functionality to Slimes
+     (X) Player HUD health and mana that will change base by stats
+     (X) Slimes are able to deal damage to Player
+     (X) Player is able to deal damage to Slimes
+  [D] Collision From Slimes will will damage mana/health
+      (D) Make Power Level Scaling Attacks
             - level 0 deal no damage
             - level 1 no damage but potential stagger
             - level 2 deal only mana damage

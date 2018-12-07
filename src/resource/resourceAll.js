@@ -1,5 +1,5 @@
 export function LoadResources(scene){
-   scene.load.atlas('npcList', 'assets/spritesheet.png', 'assets/sprites.json');
+   scene.load.atlas('mainAtlas', 'assets/spritesheet.png', 'assets/sprites.json');
 
   /**
    * Map

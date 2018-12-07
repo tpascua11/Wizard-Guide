@@ -35,14 +35,17 @@ export default class Player extends Basic{
     this.defaultStats();
     this.defaultState()
     this.setupControls(scene);
+    this.setupHUD(scene);
   }
 
   defaultStats(stats) {
     if(stats) this.stats = Object.assign({}, src);
     else{
       this.stats = {
-        heatlh: 3,
-        mana: 25,
+        currentHealth: 5,
+        maxHeatlh: 10,
+        currentMana: 10,
+        maxMana: 10,
         maxVelocity: 350,
         maxRunSpeed: 350,
         runAcl: 50,
@@ -51,7 +54,9 @@ export default class Player extends Basic{
         jumpPower: -500,
         acl: 50,
         hasJumped: false,
-        isInAir: false
+        isInAir: false,
+        regenAt: 40,
+        currentRegen: 0,
       };
     }
   }
@@ -88,9 +93,61 @@ export default class Player extends Basic{
     this.control.keyDown     = box.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
     this.control.keyUp       = box.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
   }
+    setupHUD(scene){
+      this.healthHud = scene.add.sprite(35, 10, 'healthbarsheet');
+      this.manaHud = scene.add.sprite(35, 18, 'manabarsheet');
+
+      this.healthHud.setOrigin(0);
+      this.manaHud.setOrigin(0);
+
+      this.healthHud.setScale(1.7, 1.4);
+      this.manaHud.setScale(1.7, 2);
+
+      this.manaHud.setScrollFactor(0);
+      this.healthHud.setScrollFactor(0);
+    }
 
   /**
-   * State
+   * Stats and State Modifier
+   */
+  takeDamage(damage){
+    var accessDamage = this.stats.currentMana - damage;
+    this.stats.currentMana -= damage;
+    if(accessDamage <= 0){
+      this.stats.currentMana = 0;
+      this.stats.currentHealth += accessDamage;
+    }
+    this.updatePlayerHUD();
+  }
+
+  modifierHealth(value){
+    this.stats.currentHealth += value;
+    var excess = this.stats.currentHealth;
+
+    if(this.stats.currentHealth > this.stats.maxHealth){
+      this.stats.currentHealth = this.stats.maxHealth;
+    }
+    else if(this.stats.currentHealth < 0){
+      this.stats.currentHealth = 0;
+    }
+    this.updatePlayerHUD();
+  }
+
+  modifierMana(value){
+    this.stats.currentMana += value;
+    var excess = this.stats.currentHealth;
+
+    if(this.stats.currentMana > this.stats.maxMana){
+      this.stats.currentMana = this.stats.maxMana;
+    }
+    else if(this.stats.currentMana < 0){
+      this.stats.currentMana = 0;
+    }
+    this.updatePlayerHUD();
+  }
+
+  /**
+   * Update
    */
   updateState(scene){
     this.state.onGround = this.body.onFloor();
@@ -121,6 +178,23 @@ export default class Player extends Basic{
     else if(this.control.keyJump.isDown){
       this.boostJumping();
     }
+  }
+
+  updateStatus(){
+    this.stats.currentRegen++;
+    if(this.stats.currentRegen == this.stats.regenAt){
+      //console.log("REGEN");
+      this.modifierMana(1);
+      this.stats.currentRegen = 0;
+    }
+  }
+
+  updatePlayerHUD(){
+    //console.log("Player Health", this.stats.currentHealth);
+    //console.log("Player Mana  ", this.stats.currentMana);
+    this.manaHud.setFrame(this.stats.currentMana);
+    this.manaHud.alpha = 0.6;
+    this.healthHud.setFrame(this.stats.currentHealth);
   }
 
   /**
@@ -172,15 +246,6 @@ export default class Player extends Basic{
         console.log("jump");
         //let test = scene.collisionStorage.getFirstDead(false, this.body.x, this.body.y);
         //test.active = true;
-        var config = {
-          x: this.body.x,
-          y: this.body.y,
-          updateLimit: 1,
-          hitLimit: 2,
-          user: this,
-          followUser: true,
-        };
-        this.currentCollision = scene.createCollision(config);
       }
   }
 
@@ -196,10 +261,19 @@ export default class Player extends Basic{
   }
 
   spellJump(scene){
-      this.state.jumpCurrent = 0;
-      this.anims.play('spellJump', true);
-      this.body.setVelocityY(this.stats.jumpPower+100); // jump up
-      scene.collisionStorage.getFirstDead(false, this.body.x, this.body.y);
+    if(this.stats.currentMana <= 0) return;
+    this.state.jumpCurrent = 0;
+    this.anims.play('spellJump', true);
+    this.body.setVelocityY(this.stats.jumpPower+100); // jump up
+    var config = {
+      x: this.body.x,
+      y: this.body.y,
+      updateLimit: 1,
+      hitLimit: 2,
+      user: this,
+      followUser: true,
+    };
+    this.currentCollision = scene.createCollision(config);
   }
 
   stopMoving(stopForce){

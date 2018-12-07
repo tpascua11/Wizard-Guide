@@ -18,6 +18,10 @@ export default class AI extends Basic{
     if(stats) this.stats = Object.assign({}, src);
     else{
       this.stats = {
+        currentHealth: 3,
+        maxHeatlh: 10,
+        currentMana: 10,
+        maxMana: 10,
         heatlh: 1,
         mana: 1,
         direction: 1,
@@ -115,9 +119,6 @@ export default class AI extends Basic{
     }
   }
 
-  death(){
-    //Use this to return back to pool and be inactive for later use
-  }
   /**
    * AI_Basic_Actions
    */
@@ -212,5 +213,47 @@ export default class AI extends Basic{
       callCollisionOn: -1
     };
   }
+
+  /**
+   * Stat And Event Modifier
+   */
+  takeDamage(damage){
+    this.stats.currentHealth -= damage;
+    if(this.stats.currentHealth <= 0) this.death();
+  }
+
+  modifierHealth(value){
+    this.stats.currentHealth += value;
+    var excess = this.stats.currentHealth;
+
+    if(this.stats.currentHealth > this.stats.maxHealth){
+      this.stats.currentHealth = this.stats.maxHealth;
+    }
+    else if(this.stats.currentHealth < 0){
+      this.stats.currentHealth = 0;
+    }
+  }
+
+  modifierMana(value){
+    this.stats.currentMana += value;
+    var excess = this.stats.currentHealth;
+
+    if(this.stats.currentMana > this.stats.maxMana){
+      this.stats.currentMana = this.stats.maxMana;
+    }
+    else if(this.stats.currentMana < 0){
+      this.stats.currentMana = 0;
+    }
+  }
+
+  death(){
+    console.log("DEATH");
+     this.visible = false;
+     this.active = false;
+    //this.active = false;
+    //this.hide = true;
+  }
+
+
 
 };

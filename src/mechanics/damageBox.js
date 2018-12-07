@@ -18,7 +18,7 @@ export default class CollisionEvent extends Basic {
     this.defaultStats();
 
     //this.setScale(1);
-    this.alpha = 0.5;
+    this.alpha = 0.2;
     this.body.setCollideWorldBounds(true);
     this.body.allowGravity = false;
     this.body.setSize(100,100, false);

@@ -1,6 +1,7 @@
 import 'phaser';
 
 import { SimpleScene } from './scenes/simple-scene';
+import { DialogBox } from './scenes/dialogScene';
 import { platformerPhysics} from './physics/physics';
 import { game } from './objects/source';
 
@@ -22,8 +23,7 @@ const gameConfig = {
 			debug: true
 		}
 	},
-	scene: SimpleScene,
-
+	scene: [SimpleScene, DialogBox],
 	render: {
 		pixelArt: true,
 		roundPixels: true

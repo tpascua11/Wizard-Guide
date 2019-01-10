@@ -4,9 +4,8 @@
  */
 
 import Basic from '../mechanics/basic';
-
 export default class Player extends Basic{
-  /**
+  /*
    * Intialization
    */
   constructor(scene, x, y) {
@@ -93,19 +92,20 @@ export default class Player extends Basic{
     this.control.keyDown     = box.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
     this.control.keyUp       = box.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
   }
-    setupHUD(scene){
-      this.healthHud = scene.add.sprite(35, 10, 'healthbarsheet');
-      this.manaHud = scene.add.sprite(35, 18, 'manabarsheet');
 
-      this.healthHud.setOrigin(0);
-      this.manaHud.setOrigin(0);
+  setupHUD(scene){
+    this.healthHud = scene.add.sprite(35, 10, 'healthbarsheet');
+    this.manaHud = scene.add.sprite(35, 18, 'manabarsheet');
 
-      this.healthHud.setScale(1.7, 1.4);
-      this.manaHud.setScale(1.7, 2);
+    this.healthHud.setOrigin(0);
+    this.manaHud.setOrigin(0);
 
-      this.manaHud.setScrollFactor(0);
-      this.healthHud.setScrollFactor(0);
-    }
+    this.healthHud.setScale(1.7, 1.4);
+    this.manaHud.setScale(1.7, 2);
+
+    this.manaHud.setScrollFactor(0);
+    this.healthHud.setScrollFactor(0);
+  }
 
   /**
    * Stats and State Modifier
@@ -165,7 +165,7 @@ export default class Player extends Basic{
     else if(this.state.onGround){
       this.stopMoving(25);
       //if(this.anims.currentAnim && (this.anims.currentAnim.key !== 'idle')){
-        this.anims.play('idle', true);
+      this.anims.play('idle', true);
       //}
       if(this.movingLeft)  this.setOrigin(0.5,0.5);
       if(this.movingRight) this.setOrigin(0.7,0.5);
@@ -238,26 +238,27 @@ export default class Player extends Basic{
   }
 
   jump(scene){
-      if(this.state.onGround){
-        this.state.jumpCurrent = 0;
-        this.anims.play('jump', true);
-        this.body.setVelocityY(this.stats.jumpPower); // jump up
-        this.state.has_jumped = true;
-        console.log("jump");
-        //let test = scene.collisionStorage.getFirstDead(false, this.body.x, this.body.y);
-        //test.active = true;
-      }
+    if(this.state.onGround){
+      this.state.jumpCurrent = 0;
+      this.anims.play('jump', true);
+      this.body.setVelocityY(this.stats.jumpPower); // jump up
+      this.state.has_jumped = true;
+      console.log("jump");
+      //let test = scene.collisionStorage.getFirstDead(false, this.body.x, this.body.y);
+      //test.active = true;
+      //
+    }
   }
 
   boostJumping(){
-      if(!this.state.onGround){
-        if(this.state.jumpCurrent <= this.stats.jumpSpan){
-            this.body.velocity.y -= this.stats.jumpAcl;
+    if(!this.state.onGround){
+      if(this.state.jumpCurrent <= this.stats.jumpSpan){
+        this.body.velocity.y -= this.stats.jumpAcl;
 
-            this.state.jumpCurrent++;
-            //console.log("jump span", this.state.jumpCurrent);
-        }
+        this.state.jumpCurrent++;
+        //console.log("jump span", this.state.jumpCurrent);
       }
+    }
   }
 
   spellJump(scene){
@@ -290,7 +291,6 @@ export default class Player extends Basic{
       }
     }
   }
-
 
 }
 

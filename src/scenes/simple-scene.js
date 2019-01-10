@@ -15,6 +15,7 @@ export class SimpleScene extends Phaser.Scene {
 		super({
 			key: 'GameScene'
 		});
+    //Phaser.Scene.call(this, { key: 'sceneA' });
 	}
 
 	preload() {
@@ -62,6 +63,11 @@ export class SimpleScene extends Phaser.Scene {
 
     this.universalTime = 0;
 		this.time.addEvent({ delay: 500, callback: this.timeTick, callbackScope: this, loop: true });
+
+		this.input.keyboard.on('keydown_SPACE', function (event) {
+			this.scene.scene.pause();
+			this.scene.scene.resume("DialogBox");
+		});
 	}
 
 	timeTick(){
@@ -75,9 +81,9 @@ export class SimpleScene extends Phaser.Scene {
 	}
 
 	collisionEffect(targets, collision){
-			collision.state.currentHits++;
-			console.log("collision hits", collision.state.currentHits);
-			targets.takeDamage(1);
+		collision.state.currentHits++;
+		console.log("collision hits", collision.state.currentHits);
+		targets.takeDamage(1);
 	}
 
 	collisionCause(targets, collision){
@@ -99,7 +105,9 @@ export class SimpleScene extends Phaser.Scene {
 		}, this);
 		//this.test.body.x = this.player.body.x - 100;
 		//this.test.body.y = this.player.body.y - 100;
-    //console.log("2");
+		//console.log("2");
+		//
+		//
 	}
 
 }

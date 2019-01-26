@@ -13,6 +13,12 @@ module.exports = {
     filename: 'app.bundle.js'
   },
 
+  resolve: {
+    alias: {
+      ROOT : path.resolve(__dirname, 'src/'),
+    }
+  },
+
   module: {
     rules: [
       {

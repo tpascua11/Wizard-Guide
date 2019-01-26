@@ -40,8 +40,8 @@ export function AnimationSet(scene){
       'healthbarsheet',
       {
         atlas: 'mainAtlas',
-        frame: 'healthbar',
-        frameWidth: 159,
+        frame: 'health_bar_face',
+        frameWidth: 49,
         frameHeight: 11
       }
     );
@@ -51,8 +51,8 @@ export function AnimationSet(scene){
       {
         atlas: 'mainAtlas',
         frame: 'manabar',
-        frameWidth: 159,
-        frameHeight: 11
+        frameWidth: 81,
+        frameHeight: 9
       }
     );
 

@@ -69,7 +69,7 @@
       Yes or No Option
   [ ] Scene can go straight to the main menu
 
-  *Able to pause Game Scene
+  [X] Able to pause Game Scene
 
 --------------------------------------------------------------------------------
   Version 0.0.5 -- Menu Screen

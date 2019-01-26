@@ -94,14 +94,23 @@ export default class Player extends Basic{
   }
 
   setupHUD(scene){
-    this.healthHud = scene.add.sprite(35, 10, 'healthbarsheet');
-    this.manaHud = scene.add.sprite(35, 18, 'manabarsheet');
+    //this.healthHud = scene.add.sprite(40, 35, 'healthbarsheet');
+    this.healthHud = scene.add.sprite(680, 15, 'healthbarsheet');
+    this.manaHud = scene.add.sprite(25, 15, 'manabarsheet');
+    //
+    /*
+    this.healthHud = scene.add.sprite(365, 545, 'healthbarsheet');
+    this.manaHud = scene.add.sprite(325, 570, 'manabarsheet');
+    */
 
     this.healthHud.setOrigin(0);
     this.manaHud.setOrigin(0);
 
-    this.healthHud.setScale(1.7, 1.4);
-    this.manaHud.setScale(1.7, 2);
+    //this.healthHud.setScale(1.7, 1.4);
+    //this.manaHud.setScale(1.7, 2);
+    this.healthHud.setScale(2.0, 2.0);
+    this.manaHud.setScale(2.2, 2.2);
+
 
     this.manaHud.setScrollFactor(0);
     this.healthHud.setScrollFactor(0);
@@ -192,9 +201,9 @@ export default class Player extends Basic{
   updatePlayerHUD(){
     //console.log("Player Health", this.stats.currentHealth);
     //console.log("Player Mana  ", this.stats.currentMana);
-    this.manaHud.setFrame(this.stats.currentMana);
-    this.manaHud.alpha = 0.6;
-    this.healthHud.setFrame(this.stats.currentHealth);
+    this.manaHud.setFrame(this.stats.currentMana-1);
+    //this.manaHud.alpha = 0.8;
+    //this.healthHud.setFrame(this.stats.currentHealth);
   }
 
   /**

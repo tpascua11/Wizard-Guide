@@ -96,6 +96,7 @@ export class SimpleScene extends Phaser.Scene {
 	}
 
 	update(time, delta) {
+		//console.time("UPDATE");
 		this.player.updateState(this);
 		this.player.updateStatus();
 		//console.log("enemy Group", this.enemyGroup.children.entries);
@@ -106,8 +107,7 @@ export class SimpleScene extends Phaser.Scene {
 		//this.test.body.x = this.player.body.x - 100;
 		//this.test.body.y = this.player.body.y - 100;
 		//console.log("2");
-		//
-		//
+		//console.timeEnd("UPDATE");
 	}
 
 }

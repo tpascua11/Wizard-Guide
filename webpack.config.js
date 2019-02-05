@@ -15,7 +15,8 @@ module.exports = {
 
   resolve: {
     alias: {
-      ROOT : path.resolve(__dirname, 'src/'),
+     	ASSET : path.resolve(__dirname, 'assets/'),
+      ROOT  : path.resolve(__dirname, 'src/'),
     }
   },
 

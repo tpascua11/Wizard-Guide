@@ -15,7 +15,6 @@ export function LoadResources(scene){
     frameHeight: 25,
     spacing: 0
   });
-
   /**
    * Monster
    */
@@ -35,6 +34,12 @@ export function LoadResources(scene){
     frameHeight: 25,
     spacing: 0
   });
-
+/*
+  scene.load.spritesheet('backgroundUI', 'assets/debug/blackbox.png', {
+    frameWidth: 25,
+    frameHeight: 25,
+    spacing: 0
+  });
+  */
 
 }

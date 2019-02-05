@@ -67,6 +67,7 @@ export class SimpleScene extends Phaser.Scene {
 		this.input.keyboard.on('keydown_SPACE', function (event) {
 			this.scene.scene.pause();
 			this.scene.scene.resume("DialogBox");
+			console.log("See Scene", this.scene.scene.get("DialogBox").backgroundUI.setAlpha(0.9));
 		});
 	}
 

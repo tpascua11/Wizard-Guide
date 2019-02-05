@@ -67,7 +67,6 @@
   [ ] Interactive Statue/Campfire that once interacted
       will show a dialog box saying "Rest up for more adventuring"
       Yes or No Option
-  [ ] Scene can go straight to the main menu
 
   [X] Able to pause Game Scene
 
@@ -82,6 +81,7 @@
       ( ) Exit (no idea yet)
   [ ] Loading Info
       ( ) Load Bar
+  [ ] Dialog Box can go straight to the main menu
 
 --------------------------------------------------------------------------------
   Version 0.0.6 -- Move Between Diffrent Levels
@@ -91,12 +91,14 @@
       ( ) Reaching Near the end of the screen cause movement to diffrent level
 
 --------------------------------------------------------------------------------
-  Version 0.0.7 -- Player Basic Spells/Attacks
+  Version 0.0.7 -- Player Basic Spells/Attacks ALSO defaulted sprite size
 --------------------------------------------------------------------------------
+  [ ] Not more scaling sprites, increase size when entering resources.
   [ ] DRAGON WIZARD MAGIC BREATH
   [ ] Spell Jump
   [ ] Barrier
   [ ] Rest Barrier
+
 
 --------------------------------------------------------------------------------
   Version 0.0.8 -- New Enemies

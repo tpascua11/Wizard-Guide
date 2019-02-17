@@ -38,8 +38,7 @@ export class SimpleScene extends Phaser.Scene {
 
 		this.setNewMap("map");
 
-		this.physics.add.overlap(this.player, this.testEvent, this.eventCollision, this.eventCause, this);
-
+		//this.physics.add.overlap(this.player, this.testEvent, this.eventCollision, this.eventCause, this);
 
 		SetupBubbleGroup(this);
 
@@ -95,6 +94,7 @@ export class SimpleScene extends Phaser.Scene {
 		console.log(`%c ---------------------- Check`, 'color: red');
 		this.enemyGroup = this.add.group();
 		this.eventGroup = this.add.group();
+		this.eventGroup.runChildUpdate = true;
 		console.log(`%c ---------------------- Check`, 'color: red');
 		console.log(`%c ---------------------- Check`, 'color: red');
 
@@ -119,8 +119,22 @@ export class SimpleScene extends Phaser.Scene {
 				this.testEvent.displayHeight = 200;
 				this.testEvent.setAlpha(0.5);
 				console.log(`%c mapEvent`, 'color: green', mapEvent);
+
+				let newConfig = {
+					x: 600,
+					y: mapEvent.y,
+					scene: this,
+					key: "attackDebug"
+				}
+				let newEvent = new MapEvent(newConfig);
+				newEvent.displayWidth = 100;
+				newEvent.displayHeight = 200;
+				newEvent.setAlpha(0.5);
+				this.eventGroup.add(newEvent);
 			}
 		);
+
+		this.physics.add.overlap(this.player, this.eventGroup, this.eventCollision, this.eventCause, this);
 
 		this.groundLayerCollidePlayer = this.physics.add.collider(this.groundLayer, this.player);
 		this.groundLayerCollideEnemyGroup = this.physics.add.collider(this.groundLayer, this.enemyGroup);

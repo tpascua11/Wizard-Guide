@@ -97,7 +97,9 @@ export default class Player extends Basic{
     //this.healthHud = scene.add.sprite(40, 35, 'healthbarsheet');
     this.healthHud = scene.add.sprite(680, 15, 'healthbarsheet');
     this.manaHud = scene.add.sprite(25, 15, 'manabarsheet');
-    //
+    this.interactBubble = scene.add.sprite(50, 50, 'interactBubble');
+    this.interactBubble.visible = false; 
+
     /*
     this.healthHud = scene.add.sprite(365, 545, 'healthbarsheet');
     this.manaHud = scene.add.sprite(325, 570, 'manabarsheet');

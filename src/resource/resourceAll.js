@@ -1,11 +1,11 @@
 export function LoadResources(scene){
    scene.load.atlas('mainAtlas', 'assets/spritesheet.png', 'assets/sprites.json');
-
   /**
    * Map
    */
   scene.load.image('coin', 'assets/coinGold.png');
-  scene.load.tilemapTiledJSON('map', 'assets/tilemap/map/TestGround.json');
+  scene.load.tilemapTiledJSON('map', 'assets/tilemap/map/TestGround2.json');
+  scene.load.tilemapTiledJSON('TestingGround', 'assets/tilemap/map/Test3.json');
   scene.load.spritesheet('basic', 'assets/tilemap/texture/basic.png', {frameWidth: 32, frameHeight: 32});
   /**
    * Player
@@ -23,6 +23,7 @@ export function LoadResources(scene){
     frameHeight: 16,
     spacing: 0
   });
+
   scene.load.spritesheet('slimeTemplate', 'assets/npc/monsters/Slime.png', {
     frameWidth: 16,
     frameHeight: 16,
@@ -34,6 +35,8 @@ export function LoadResources(scene){
     frameHeight: 25,
     spacing: 0
   });
+
+
 /*
   scene.load.spritesheet('backgroundUI', 'assets/debug/blackbox.png', {
     frameWidth: 25,

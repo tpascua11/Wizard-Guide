@@ -62,13 +62,14 @@
 --------------------------------------------------------------------------------
   Version 0.0.4 -- Win State
 --------------------------------------------------------------------------------
-  A trigger to cutscenes and or events
+  [ ] A trigger to cutscenes and or events
 
   [ ] Interactive Statue/Campfire that once interacted
       will show a dialog box saying "Rest up for more adventuring"
       Yes or No Option
 
   [X] Able to pause Game Scene
+      (X)Black UI Setup
 
 --------------------------------------------------------------------------------
   Version 0.0.5 -- Menu Screen
@@ -89,6 +90,7 @@
   [ ] Traverse Between 2 diffrent level layout
       ( ) Interactive Doorwar or somesort to move to a diffrent Level
       ( ) Reaching Near the end of the screen cause movement to diffrent level
+      (X) Made Function To Be Able To Clear Out Data for New Map
 
 --------------------------------------------------------------------------------
   Version 0.0.7 -- Player Basic Spells/Attacks ALSO defaulted sprite size

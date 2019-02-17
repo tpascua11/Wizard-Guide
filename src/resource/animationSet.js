@@ -22,6 +22,13 @@ export function AnimationSet(scene){
     frameRate: 10,
     repeat: -1
   });
+  scene.anims.create({
+    key: 'Interact',
+    frames: scene.anims.generateFrameNames('mainAtlas', { prefix: 'Interact', start: 0, end: 2}),
+    frameRate: 5,
+    repeat: -1
+  });
+
 
   /**
    * Player
@@ -36,24 +43,39 @@ export function AnimationSet(scene){
             frameHeight: 25
         }
     );*/
-    scene.textures.addSpriteSheetFromAtlas(
-      'healthbarsheet',
-      {
-        atlas: 'mainAtlas',
-        frame: 'health_bar_face',
-        frameWidth: 49,
-        frameHeight: 11
-      }
-    );
+  scene.textures.addSpriteSheetFromAtlas(
+    'healthbarsheet',
+    {
+      atlas: 'mainAtlas',
+      frame: 'health_bar_face',
+      frameWidth: 49,
+      frameHeight: 11
+    }
+  );
 
+  scene.textures.addSpriteSheetFromAtlas(
+    'manabarsheet',
+    {
+      atlas: 'mainAtlas',
+      frame: 'manabar',
+      frameWidth: 81,
+      frameHeight: 9
+    }
+  );
+  /*
     scene.textures.addSpriteSheetFromAtlas(
-      'manabarsheet',
+      'interactBubble',
       {
         atlas: 'mainAtlas',
-        frame: 'manabar',
-        frameWidth: 81,
-        frameHeight: 9
+        frame: 'interactBubble',
+        frameWidth: 25,
+        frameHeight: 25
       }
     );
+    */
+
+
+
+
 
 }

@@ -15,55 +15,120 @@
         }, 
         {
          "draworder":"topdown",
+         "name":"Event",
+         "objects":[
+                {
+                 "height":78.6666666666667,
+                 "id":35,
+                 "name":"",
+                 "properties":
+                    {
+                     "dialogText":"Hello!\nThis is the first dialog conversion\nGoodbye!\n",
+                     "eventOnActivate":true,
+                     "eventOnTouch":false
+                    },
+                 "propertytypes":
+                    {
+                     "dialogText":"string",
+                     "eventOnActivate":"bool",
+                     "eventOnTouch":"bool"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":28,
+                 "x":1569.33333333333,
+                 "y":430.666666666667
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "name":"Enemies",
          "objects":[
                 {
                  "gid":103,
                  "height":27,
-                 "id":11,
-                 "name":"",
+                 "id":32,
+                 "name":"slime",
+                 "properties":
+                    {
+                     "key":"slime"
+                    },
+                 "propertytypes":
+                    {
+                     "key":"string"
+                    },
                  "rotation":0,
-                 "type":"",
+                 "type":"RealSlime",
                  "visible":true,
                  "width":39,
-                 "x":759,
+                 "x":798.333,
                  "y":511
                 }, 
                 {
                  "gid":103,
                  "height":27,
-                 "id":12,
-                 "name":"",
+                 "id":33,
+                 "name":"slime",
+                 "properties":
+                    {
+                     "key":"slime"
+                    },
+                 "propertytypes":
+                    {
+                     "key":"string"
+                    },
                  "rotation":0,
-                 "type":"",
+                 "type":"RealSlime",
                  "visible":true,
                  "width":39,
-                 "x":907,
-                 "y":509
+                 "x":1407.83,
+                 "y":255.167
                 }, 
                 {
                  "gid":103,
                  "height":27,
-                 "id":13,
-                 "name":"",
+                 "id":34,
+                 "name":"slime",
+                 "properties":
+                    {
+                     "key":"slime"
+                    },
+                 "propertytypes":
+                    {
+                     "key":"string"
+                    },
                  "rotation":0,
-                 "type":"",
+                 "type":"RealSlime",
                  "visible":true,
                  "width":39,
-                 "x":1025,
-                 "y":513
+                 "x":1347.17,
+                 "y":448.5
                 }, 
                 {
                  "gid":103,
                  "height":27,
-                 "id":14,
-                 "name":"",
+                 "id":36,
+                 "name":"slime",
+                 "properties":
+                    {
+                     "key":"slime"
+                    },
+                 "propertytypes":
+                    {
+                     "key":"string"
+                    },
                  "rotation":0,
-                 "type":"",
+                 "type":"RealSlime",
                  "visible":true,
                  "width":39,
-                 "x":571,
-                 "y":653
+                 "x":1057.16333333333,
+                 "y":767.167
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -71,7 +136,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":15,
+ "nextobjectid":37,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.1.6",
@@ -132,13 +197,15 @@
                 {
                  "image":"..\/enemyTemplate\/golbin.png",
                  "imageheight":39,
-                 "imagewidth":15
+                 "imagewidth":15,
+                 "type":"burnstar"
                 },
              "2":
                 {
                  "image":"..\/enemyTemplate\/slime.png",
                  "imageheight":27,
-                 "imagewidth":39
+                 "imagewidth":39,
+                 "type":"coolstar"
                 }
             },
          "tilewidth":39

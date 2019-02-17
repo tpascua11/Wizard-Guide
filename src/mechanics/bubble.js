@@ -32,22 +32,13 @@ export default class BubbleAlert extends Phaser.GameObjects.Sprite {
 
   clear(){
     console.log("Stop");
-    //this.anims.pause();
+    this.anims.pause();
     this.setActive(false);
     this.visible = false;
     this.active = false;
     this.followSprite = null;
   }
 
-  process(scene){
-
-  }
-/*
-  preUpdate(){
-  }
-
-
-  */
   update(){
     if(this.followSprite){
      // console.log("player x", this.followSprite.body.x);
@@ -75,12 +66,10 @@ export function SetupBubbleGroup(scene){
   };
 
   scene.bubbleAlertGroup = scene.add.group();
-  //scene.bubbleAlertGroup.add(new BubbleAlert(config));
   for(var i = 0; i < maxBubbles; i++){
     scene.newBubble = new BubbleAlert(config);
     scene.bubbleAlertGroup.add(scene.newBubble);
   }
   scene.bubbleAlertGroup.runChildUpdate = true;
-  //scene.newBubble.setActive(true);
 }
 

@@ -29,12 +29,14 @@ export class MenuScene extends Phaser.Scene {
     this.uiMoveDown  = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
     this.startUICondition = true;
     this.dialogMenu = new DialogMenu(this);
+    console.log("BOTH HAPPEN AT THE SAME TIME");
 
     this.input.keyboard.on('keydown_SPACE', function (event) {
       this.scene.dialogMenu.clearOut();
       this.scene.scene.pause();
       this.scene.scene.resume("GameScene");
     });
+    this.scene.pause();
 
   }
 

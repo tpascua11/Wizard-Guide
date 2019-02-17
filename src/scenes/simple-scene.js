@@ -37,32 +37,7 @@ export class SimpleScene extends Phaser.Scene {
 		this.physics.add.overlap(this.player, this.collisionStorage, this.collisionEffect, this.collisionCause, this);
 
 		this.setNewMap("map");
-
-		//this.physics.add.overlap(this.player, this.testEvent, this.eventCollision, this.eventCause, this);
-
 		SetupBubbleGroup(this);
-
-		let config = {
-			followSprite: this.player,
-			key: "Interact",
-			scene: this,
-			alignX: -40 ,
-			alignY: 10
-		};
-
-		//SetupBubbleGroup(this);
-		//console.log(this.bubbleAlertGroup.getFirstDead());
-		//
-			//.trigger("", 'Interact', -1).;
-		/*
-		this.bubbleAlert = new BubbleAlert(config);
-		*/
-    //this.newBubble.trigger(config);
-		//this.bubbleAlertGroup.getFirstDead().trigger(config);
-		//this.bubbleAlertGroup.getFirst().trigger(config);
-		//this.bubbleAlertGroup.getFirst().trigger(config);
-		//console.log("bubble", this.bubbleAlertGroup.getFirst());
-		//this.newBubble.trigger(config);
 	}
 
 	playerSetup(){
@@ -107,17 +82,6 @@ export class SimpleScene extends Phaser.Scene {
 
 		this.map.getObjectLayer('Event').objects.forEach(
 			(mapEvent) => {
-				let config ={
-					x: 300,
-					y: mapEvent.y,
-					scene: this,
-					key: "attackDebug"
-				}
-				this.testEvent = new MapEvent(config);
-				this.testEvent.eventLimit = 0;
-				this.testEvent.displayWidth = 200;
-				this.testEvent.displayHeight = 200;
-				this.testEvent.setAlpha(0.5);
 				console.log(`%c mapEvent`, 'color: green', mapEvent);
 
 				let newConfig = {
@@ -153,13 +117,17 @@ export class SimpleScene extends Phaser.Scene {
 	}
 
 	keyEvents(){
+		this.clearEvent = {activate: function(){console.log("no current event")}};
+		this.currentEvent = this.clearEvent;
 		this.cursors = this.input.keyboard.createCursorKeys();
+		this.input.keyboard.on('keydown_E', function (event) {
+			this.scene.currentEvent.activate();
+		});
 		this.input.keyboard.on('keydown_SPACE', function (event) {
 			/*
 			if(this.scene.bubble.canSkipCutscene){
 				this.scene.setNewMap("map");
 			}
-
 			*/
 			let template = {
 				dialogText: "Hello Dragon Wizard",
@@ -209,50 +177,12 @@ export class SimpleScene extends Phaser.Scene {
 		//console.time("UPDATE");
 		this.player.updateState(this);
 		this.player.updateStatus();
-		//console.log("enemy Group", this.enemyGroup.children.entries);
-		//console.log("this", this);
 
 		if(this.enemyGroup.children){
 			this.enemyGroup.children.entries.forEach(function(npc){
 				if(npc.active) npc.newProcessAI(this);
 			}, this);
 		}
-
-
-/*
-		if(this.bubbleAlertGroup.children){
-			this.enemyGroup.children.entries.forEach(function(npc){
-				if(npc.active) npc.newProcessAI(this);
-			}, this);
-		}
-*/
-		/*
-		if(this.testEvent.body.touching.none){
-			if(!this.bubble.skip){
-				this.bubble.skip = true;
-				this.bubble.clear();
-			}
-		}else{
-			console.log("TOUCHING", this.player.body.velocity.y, this.player.body.velocity.x);
-			if(this.bubble.skip){
-				this.bubble.canSkipCutscene = true;
-				this.bubble.skip = false;
-				this.bubble.trigger();
-			}
-		}
-		*/
-		//this.bubble.process(this);
-		/*
-		if(this.testEvent.eventLimit == 0){
-			//this.bubble.clear();
-		}
-		else{
-			this.testEvent.eventLimit--;
-		}*/
-
-		this.testEvent.updateZ();
-		//this.player.stats.maxVelocity = 5000;
-		//this.player.stats.runAcl = 1000;
 		//console.timeEnd("UPDATE");
 	}
 

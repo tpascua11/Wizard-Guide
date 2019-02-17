@@ -90,4 +90,20 @@ eventCollision(targets, mapEvent){
 }
 
 
+if(this.testEvent.body.touching.none){
+  if(!this.bubble.skip){
+    this.bubble.skip = true;
+    this.bubble.clear();
+  }
+}else{
+  console.log("TOUCHING", this.player.body.velocity.y, this.player.body.velocity.x);
+  if(this.bubble.skip){
+    this.bubble.canSkipCutscene = true;
+    this.bubble.skip = false;
+    this.bubble.trigger();
+  }
+}
+
+
+
 

@@ -11,22 +11,8 @@ export default class MapEvent extends Phaser.GameObjects.Sprite {
     super(config.scene, config.x, config.y - 16, config.key);
     config.scene.physics.world.enable(this);
     config.scene.add.existing(this);
-
     this.body.allowGravity = false;
-    //this.setScale(3,3);
-
-    //this.is_overlaping = false;
-    console.log("see this", this);
-    //this.setActive(false);
-    //this.disableBody();
     this.eventLimit = 0;
-  }
-
-  overlapProcess(scene){
-    this.is_overlaping = true;
-    if(this.is_overlaping){
-      scene.bubble.trigger();
-    }
   }
 
   overlapUpdate(scene){
@@ -53,24 +39,6 @@ export default class MapEvent extends Phaser.GameObjects.Sprite {
 
   }
 
-  process(scene){
-    this.is_overlaping = false;
-    this.bubbleAlert.clear();
-    //scene.bubble.clear();
-  }
-
-  /*
-  preUpdate(){
-    console.log("IM UPDATING");
-		if(this.testEvent.eventLimit == 0){
-			//this.bubble.clear();
-      //this.disableBody(true,true);
-		}
-		else{
-			this.testEvent.eventLimit--;
-		}
-  }
-  */
   update(){
     if(!this.eventIsActive) return;
 
@@ -81,23 +49,6 @@ export default class MapEvent extends Phaser.GameObjects.Sprite {
 		else{
 			this.eventLimit--;
 		}
-  }
-
-  updateZ(){
-		if(this.eventLimit == 0){
-			//this.bubbleAlert.clear();
-		}
-		else{
-			this.eventLimit--;
-		}
-    /*
-    if(this.testEvent.eventLimit == 0){
-      //this.bubble.clear();
-      //this.disableBody(true,true);
-    }
-    else{
-      this.testEvent.eventLimit--;
-    }*/
   }
 
 };

@@ -1,4 +1,6 @@
 import DialogMenu from "ROOT/hud/DialogMenu";
+import {activateEvent} from "ROOT/mechanics/gameEvent";
+import {callEvent} from "ROOT/mechanics/gameEvent";
 
 export class MenuScene extends Phaser.Scene {
   constructor() {
@@ -133,10 +135,34 @@ export class MenuScene extends Phaser.Scene {
   }
 
   newMenu(menuName, menuData){
+    console.log("menu Name", menuName);
+    console.log("menu Data", menuData);
+    var newIndex = 0;
     switch(menuName){
       case "DIALOG":  this.dialogMenu.convert(this, menuData); break;
       default: console.log("DOES NOT EXIST"); break;
     }
+  }
+
+  nextDialogOption(dialogueList){
+    let nextCall = dialogueList.shift();
+    activateEvent();
+  }
+
+  makeEventList(textCode){
+    //Converts Text Code Into An Event List
+    let newLineList = textCode.split('\n');
+    var eventList = [];
+    newLineList.forEach(function(newLine){
+      eventList.push(lineReader(newLine));
+    });
+
+    function lineReader(line){
+      let lineSplit = line.split(" ");
+      return lineSplit;
+    }
+
+    return eventList;
   }
 
 }

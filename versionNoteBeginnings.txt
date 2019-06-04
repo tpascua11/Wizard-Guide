@@ -60,9 +60,23 @@
           Note: Guard/Barrier will decrease the power level
 
 --------------------------------------------------------------------------------
-  Version 0.0.4 -- Win State
+  Version 0.0.4 -- Trigger Events 
 --------------------------------------------------------------------------------
   [ ] A trigger to cutscenes and or events
+        (X) Bubble Alert
+          <x> able to show bubbles on the dragons head
+
+  [ ] Event Trigger Area Group
+        (X) Built First Step of Event Trigger Area
+          <x> Trigger Event Bubble on Player's Head
+          <x> Figured out how to make event trigger only once inside the event
+              area
+        ( ) Be Able to call new Events inside Event Area with button press
+          < > Call Pause
+          < > Call Dialogue
+          < > Yes or No Options
+          < > Go to Next Area
+          < > Yes or No Options to trigger more events inside this
 
   [ ] Interactive Statue/Campfire that once interacted
       will show a dialog box saying "Rest up for more adventuring"
@@ -95,11 +109,13 @@
 --------------------------------------------------------------------------------
   Version 0.0.7 -- Player Basic Spells/Attacks ALSO defaulted sprite size
 --------------------------------------------------------------------------------
-  [ ] Not more scaling sprites, increase size when entering resources.
+  [ ] No more scaling sprites, increase size when entering resources.
   [ ] DRAGON WIZARD MAGIC BREATH
   [ ] Spell Jump
   [ ] Barrier
   [ ] Rest Barrier
+  [ ] Dragon Inhale (Dragon Way of Spellcasting)
+  [ ] Dragon Exhale (Expend Magical Energy)
 
 
 --------------------------------------------------------------------------------

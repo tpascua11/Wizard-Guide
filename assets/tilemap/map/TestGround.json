@@ -15,6 +15,39 @@
         }, 
         {
          "draworder":"topdown",
+         "name":"Event",
+         "objects":[
+                {
+                 "height":142.6667,
+                 "id":35,
+                 "name":"",
+                 "properties":
+                    {
+                     "dialogText":"Hello!\n%t DragonLand\n%p Cool\nThis is the first dialog conversion\nGoodbye!\n",
+                     "eventOnActivate":true,
+                     "eventOnTouch":false
+                    },
+                 "propertytypes":
+                    {
+                     "dialogText":"string",
+                     "eventOnActivate":"bool",
+                     "eventOnTouch":"bool"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":130,
+                 "x":503.33,
+                 "y":384.667
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "name":"Enemies",
          "objects":[
                 {
@@ -34,7 +67,7 @@
                  "type":"RealSlime",
                  "visible":true,
                  "width":39,
-                 "x":798.333333333333,
+                 "x":798.333,
                  "y":511
                 }, 
                 {
@@ -54,8 +87,8 @@
                  "type":"RealSlime",
                  "visible":true,
                  "width":39,
-                 "x":1407.83333333333,
-                 "y":255.166666666667
+                 "x":1407.83,
+                 "y":255.167
                 }, 
                 {
                  "gid":103,
@@ -74,8 +107,28 @@
                  "type":"RealSlime",
                  "visible":true,
                  "width":39,
-                 "x":1347.16666666667,
+                 "x":1347.17,
                  "y":448.5
+                }, 
+                {
+                 "gid":103,
+                 "height":27,
+                 "id":36,
+                 "name":"slime",
+                 "properties":
+                    {
+                     "key":"slime"
+                    },
+                 "propertytypes":
+                    {
+                     "key":"string"
+                    },
+                 "rotation":0,
+                 "type":"RealSlime",
+                 "visible":true,
+                 "width":39,
+                 "x":1057.16,
+                 "y":767.167
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -83,7 +136,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":35,
+ "nextobjectid":37,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.1.6",

@@ -8,6 +8,8 @@ import Player from "../player/player";
 import BubbleAlert from "ROOT/mechanics/bubble";
 import {SetupBubbleGroup} from "ROOT/mechanics/bubble";
 import MapEvent from "ROOT/mechanics/mapEvent";
+import {activateEvent} from "ROOT/mechanics/gameEvent";
+import {callEvent} from "ROOT/mechanics/gameEvent";
 import {SetupMapEvent} from "ROOT/mechanics/mapEvent";
 import Slime from "../npc/slime";
 import Basic from "../mechanics/basic";
@@ -27,15 +29,14 @@ export class SimpleScene extends Phaser.Scene {
 	}
 
 	create() {
+		//this.gameEventAction = new GameEventAction(true);
     this.universalTime = 0;
 		this.time.addEvent({ delay: 500, callback: this.timeTick, callbackScope: this, loop: true });
-
 		AnimationSet(this);
 		this.playerSetup();
 		this.keyEvents();
 		SetupCollisionEvent(this);
 		this.physics.add.overlap(this.player, this.collisionStorage, this.collisionEffect, this.collisionCause, this);
-
 		this.setNewMap("map");
 		SetupBubbleGroup(this);
 	}
@@ -95,6 +96,7 @@ export class SimpleScene extends Phaser.Scene {
 				newEvent.displayHeight = 200;
 				newEvent.setAlpha(0.5);
 				this.eventGroup.add(newEvent);
+				activateEvent(this, mapEvent.properties.dialogText);
 			}
 		);
 

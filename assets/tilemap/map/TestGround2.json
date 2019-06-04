@@ -18,12 +18,12 @@
          "name":"Event",
          "objects":[
                 {
-                 "height":78.6666666666667,
+                 "height":142.6667,
                  "id":35,
                  "name":"",
                  "properties":
                     {
-                     "dialogText":"Hello!\nThis is the first dialog conversion\nGoodbye!\n",
+                     "dialogText":"Hello!\n%t DragonLand\n%p Cool\nThis is the first dialog conversion\nGoodbye!\n",
                      "eventOnActivate":true,
                      "eventOnTouch":false
                     },
@@ -36,9 +36,9 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":28,
-                 "x":1569.33333333333,
-                 "y":430.666666666667
+                 "width":130,
+                 "x":503.33,
+                 "y":384.667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -127,7 +127,7 @@
                  "type":"RealSlime",
                  "visible":true,
                  "width":39,
-                 "x":1057.16333333333,
+                 "x":1057.16,
                  "y":767.167
                 }],
          "opacity":1,

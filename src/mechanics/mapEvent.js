@@ -17,6 +17,7 @@ export default class MapEvent extends Phaser.GameObjects.Sprite {
 
   overlapUpdate(scene){
 		if(this.eventLimit == 0){
+      console.log("REPLACE CURRENT EVENT ", this);
 			this.eventLimit = 2;
 			//this.bubble.trigger();
 			console.log("new only once");

@@ -1,0 +1,4 @@
+Put All Assets (.png) into the the Atlas Folder
+Put All of it into https://www.leshylabs.com/apps/sstool/
+save as spritesheet.png
+and save json as JSON-TP-ARRAY filename sprites.json

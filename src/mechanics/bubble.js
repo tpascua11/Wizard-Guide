@@ -15,18 +15,20 @@ export default class BubbleAlert extends Phaser.GameObjects.Sprite {
     this.followSprite = config.scene.player;
     this.alignX = 0;
     this.alignY = 0;
-    this.anims.play('slimeDo', true);
+    this.anims.play('Interact', true);
 
     this.clear();
   }
 
   trigger(config){
+    console.log("Traigger Patterns");
     this.alignX = config.alignX;
     this.alignY = config.alignY;
     this.setActive(true);
     this.visible = true;
     this.followSprite = config.followSprite;
-    this.anims.play(config.key, true);
+    //this.anims.play(config.key, true); 
+    //TODO: CONFIG KEY WAS WRONG THAT cause it to crash when touching event box
     this.anims.resume();
   }
 

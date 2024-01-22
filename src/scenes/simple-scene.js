@@ -74,7 +74,15 @@ export class SimpleScene extends Phaser.Scene {
 		console.log(`%c ---------------------- Check`, 'color: red');
 		console.log(`%c ---------------------- Check`, 'color: red');
 
+		//monsterBox.js
 		this.map.getObjectLayer('Enemies').objects.forEach(
+			(enemy) => {
+				console.log("enemy", enemy);
+				NpcBox(this, enemy);
+			}
+		);
+
+		this.map.getObjectLayer('Objects').objects.forEach(
 			(enemy) => {
 				console.log("enemy", enemy);
 				NpcBox(this, enemy);
@@ -126,6 +134,7 @@ export class SimpleScene extends Phaser.Scene {
 			this.scene.currentEvent.activate();
 		});
 		this.input.keyboard.on('keydown_SPACE', function (event) {
+			console.log("Event Called!");
 			/*
 			if(this.scene.bubble.canSkipCutscene){
 				this.scene.setNewMap("map");

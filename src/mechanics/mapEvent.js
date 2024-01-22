@@ -23,7 +23,7 @@ export default class MapEvent extends Phaser.GameObjects.Sprite {
 			console.log("new only once");
 				let config = {
 				followSprite: scene.player,
-				key: "Interact",
+				key: "signPostQuestion",
 				scene,
 				alignX: -40 ,
 				alignY: 10
@@ -52,10 +52,15 @@ export default class MapEvent extends Phaser.GameObjects.Sprite {
 		}
   }
 
+
 };
 
-
+/*
 export function SetupMapEvent(scene){
+  console.log("TESTING SETUP MAP EVENT");
+  console.log("TESTING SETUP MAP EVENT");
+  console.log("TESTING SETUP MAP EVENT");
+  console.log("TESTING SETUP MAP EVENT");
   let maxBubbles = 1;
 
   let config = {
@@ -77,3 +82,4 @@ export function SetupMapEvent(scene){
   scene.bubbleAlertGroup.runChildUpdate = true;
 
 }
+*/

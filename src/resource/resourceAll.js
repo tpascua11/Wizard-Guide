@@ -37,6 +37,9 @@ export function LoadResources(scene){
   });
 
 
+  scene.load.image('SignPostQuestion', 'assets/npc/objects/SignPostQuestion.png');
+
+
 /*
   scene.load.spritesheet('backgroundUI', 'assets/debug/blackbox.png', {
     frameWidth: 25,

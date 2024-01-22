@@ -22,5 +22,8 @@ export function NpcBox(scene, enemy){
         case "goblinArcher":
 			  	    //scene.enemyGroup.add(new Slime(scene, enemy.x, enemy.y));
               break;
+        default:
+          console.log("notnng -- ---");
+          break;
       }
 }

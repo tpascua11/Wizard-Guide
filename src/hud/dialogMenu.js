@@ -37,7 +37,7 @@ export default class DialogMenu {
     this.selectedDefaultChoiceOption = true;
     this.init(scene);
   }
-
+/*
   init(scene){
     this.backgroundHUD = scene.add.image(
       scene.game.canvas.width * 0.5,
@@ -71,6 +71,7 @@ export default class DialogMenu {
       );
 
   }
+  */
 
   defaultChoiceSet(){
     this.confirmOptionBox.setText("Yes");
@@ -94,7 +95,6 @@ export default class DialogMenu {
     return this.selectedDefaultChoiceOption;
   }
 
-/*
   init(scene){
     this.options = [];
 
@@ -112,9 +112,11 @@ export default class DialogMenu {
         (scene.game.canvas.width * 0.42), scene.game.canvas.height * 0.950,
         'Yes',
         { fontFamily: 'Luminari', fontSize: 15, color: 'white' }
-      );
+    );
+
+
     this.yes['activate'] = function(){
-      console.log("ACCEPT");
+      console.log("ACCEPT", this);
     }
 
     this.no=
@@ -123,23 +125,26 @@ export default class DialogMenu {
         'No',
         { fontFamily: 'Luminari', fontSize: 15, color: 'white' }
       );
+    this.no['activate'] = function(){
+      console.log("Decline");
+    }
 
     this.options = [... this.options, this.yes, this.no];
     console.log("Current Options " , this.options);
     this.clearOut();
 
-    scene.currentText = 
+    scene.currentText =
     scene.add.text(
       (scene.game.canvas.width * 0.10), scene.game.canvas.height * 0.850,
       'Dragon Wizard Guide Testing All The Reason not to do this I hope I can see the sun again because\n I see nothing but the cold blue air \n test dance -------------------------------------------------------',
       { fontFamily: 'Luminari', fontSize: 15, color: 'white' }
     );
-    scene.currentText.setText("Love");
+    scene.currentText.setText("Game");
 
-    //scene.currentMenuList = this.options;
-    //scene.menuType = "HORIZONTAL";
-    //scene.currentPosition.x = 0;
-    */
+    scene.currentMenuList = this.options;
+    scene.menuType = "HORIZONTAL";
+    scene.currentPosition.x = 0;
+  }
 
   activateEvent(){
     console.log("activat");

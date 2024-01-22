@@ -28,7 +28,12 @@ export function AnimationSet(scene){
     frameRate: 5,
     repeat: -1
   });
-
+  scene.anims.create({
+    key: 'signPostQuestion',
+    frames: scene.anims.generateFrameNames('mainAtlas', { prefix: 'SignPostQuestion', start: 0, end: 1}),
+    frameRate: 5,
+    repeat: -1
+  });
 
   /**
    * Player

@@ -10,9 +10,9 @@ Evermore Wizard is an exploration game featuring a wizard dragon/raptor navigati
 
 ### Completed Features
 
-- **Player Movement:** The basic player movement mechanics have been implemented
+- **Player Movement:** The basic player movement mechanics for dinosaur, I made it.
   
-- **Enemy AI:** Simple enemy AI has been integrated,.
+- **Simple Slime Enemy:** Simple slime AI has been made.
 
 - **Dialogue Interaction:** The project was in progress with the implementation of dialogue interaction within the game, enriching the narrative and player engagement.
 
